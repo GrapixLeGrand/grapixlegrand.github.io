@@ -4,7 +4,7 @@
 |:--:| 
 | *Voxel scene generated with MagikaVoxel* |
 
-This work is the result of my bachelor project and is about physics simulation applied to the video games field. The structure of this lecture will be as followed. First, there will be an introduction to the concepts and contexts related to this project with an overview of our approach. Secondly, we will expose the technical background that was required for the project. Thirdly, we will expose our method in a fined-grained manner. Fourthly, we will show some results that highlight interesting facts. Finally, we will briefly conclude and there will be an additional and optional section "Why this project". We will also let all the examples harvested during our work. 
+This work is the result of my bachelor project and is about physics simulation applied to the video games field. The structure of this lecture will be as followed. First, there will be an introduction to the concepts and contexts related to this project with an overview of our approach. Secondly, we will expose the technical background that was required for the project. Thirdly, we will expose our method in a fined-grained manner. Fourthly, we will show some results that highlight interesting facts. Finally, we will conclude our work.
 
 ## 1. Introduction 
 In this section, we will describe the problem we aimed to solve. We will also introduce the reader to the context and concepts related to physics simulations in video games. Finally, we will expose an overview of our method and show some of our contributions. 
