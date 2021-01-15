@@ -40,7 +40,7 @@ The stress can be defined as the force $F$ divided by a cross section of the obj
 $$\sigma=F / A $$
 $$\epsilon=\Delta L/L_{0}$$
  
-  ![teardown.jpeg](https://ars.els-cdn.com/content/image/3-s2.0-B9780081026014000011-f01-07-9780081026014.jpg?) | 
+  ![stress-strain relation for different material types](images/stress_plot.jpeg) | 
 |:--:| 
 | *stress-strain relation for different material types* |
 
@@ -62,7 +62,7 @@ This matrix is containing the stress components $\sigma_{ij}$. As we can see in 
 $$T^{(e_{i})} = \sigma\cdot e_i \qquad e_i \space \bot \space Surface $$
 
 As we can see, there is a relationship between the traction vectors and the stress components. But what interest us the most now is the eigenvalues and vectors of $\sigma$. 
- ![teardown.jpeg](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Components_stress_tensor_cartesian.svg/370px-Components_stress_tensor_cartesian.svg.png) | 
+ ![Visualization of the stress components in the stress tensor and the tractions vectors](images/Components_stress_tensor_cartesian.svg) | 
 |:--:| 
 | *Visualization of the stress components in the stress tensor and the tractions vectors* |
 
@@ -82,14 +82,14 @@ Now that we have reviewed the functioning of the physical simulations we used, w
 In this section, I want to briefly discuss some basis of our project : Voxels models and meshes. Indeed, we began our journey with Voxels. But what are they exactly ? In fact, you can decompress the word "Voxel" as "volume" and "element". More precisely, a Voxel is the same as a pixel but in a 3D space. They have interesting properties as you can represent a 3D object made from Voxels with a 3D matrix and a pallet of colors. Each non-zero element in the matrix indicate the presence of a Voxel. The color of the Voxel is determined as the index stored in the matrix for this element. Beyond the unique ascetic of Voxels, they can facilitate the use of raymarching or raytracing with the right data structure to hold them. We will not cover this subject as it is out of bounds of this project. Note aside, from the year 2011 with Minecraft to now on with Teardown, Voxels are seducing more and more developers and gamer, allowing the discovery of new game designs and visuals. However, in this project, for technical reason, we decided to represent our Voxels with tetrahedrons for the simulation and not hexaedrons which are cubes. You can observe how the 5 tetrahedrons making a cube are placed in the space.
 
 
-![teardown.jpeg](https://www.ics.uci.edu/~eppstein/projects/tetra/fivecube.gif) | 
+![Five tetrahedrons making a cube](images/fivecube.png) | 
 |:--:| 
 | *Five tetrahedrons making a cube* |
 
 We will explain our algorithm to generate Voxel-like tetrahedral meshes in the "3. Method" section. Basically, for each Voxel in our model, we will stack up 5 tetrahedrons. This will allow us to keep the Voxel-like shape while getting a tetrahedral mesh of our model. We also need to note that we used an algorithm called Delauney Triangulation in order to generate 3D tetrahedral meshes, namely our other mesh type. Indeed, the the Delauney Triangulation is one of the most spread method to generate volumetric meshes. The algorithm works as follow (in 2D): Given, a set of points $P$ and $DT(P)$ its triangulation. $DT(P)$ is such that no points of $P$ lies inside the inscribed circle of any triangle from $DT(P)$.
 
 
-![teardown.jpeg](https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Delaunay_circumcircles_vectorial.svg/330px-Delaunay_circumcircles_vectorial.svg.png) | 
+![Convex shape triangulated with Delauney Algorithm](images/Delaunay_circumcircles_vectorial.svg) | 
 |:--:| 
 | *Convex shape triangulated with Delauney Algorithm* |
 
