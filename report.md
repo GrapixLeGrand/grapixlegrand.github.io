@@ -23,7 +23,7 @@ Teardown is using heuristics to simulate the physics for most of its assets. In 
 We will now proceed to an overview of our approach. Indeed, our goal through this project is to compare two cracking methods. Both methods are using a linear elasticity simulation (more about this in the tech section). The first method is using only a mathematical simulation in an iterative manner. The second method is based on heuristics. We will also compare the cracks obtained from different mesh types. Indeed, to proceed to the simulation, we need to feed the solver with a volumetric mesh. The idea is the same as a surface mesh but it express a volume in addition to a surface by dividing the volume into smaller elements. When giving an input mesh to the linear elasticity solver, it computes the stresses inside the objects. This allows us to to decide where the crack should happen based on the method used. It is worth to note that we will also describe the process of transforming a Voxel model to a tetrahedral mesh. 
 Now that we have introduced the reader to the content of our project, we will move on to a intermediate conclusion exposing our contributions.
 
-We will now conclude this introduction section by highlighting our achieved contributions. The first contribution is our crack comparison between our two methods, namely the ground truth method and the heuristics based method. Indeed, through these experiments, we are comparing the aestetics and the details of these cracks. Moreover, we are comparing the cracks along object through two different mesh types. The first type is the Voxel like tetrahedral mesh and the second is the Delauney mesh type. In addition, we will provide two more algorithms. The first is meant to generate a tetrahedral Voxel mesh from a Voxel model. The second is used to represent a graph data structure of the tetrahedral mesh.
+We will now conclude this introduction section by highlighting our achieved contributions. The first contribution is our crack comparison between our two methods, namely the ground truth method and the heuristics based method. Indeed, through these experiments, we are comparing the aesthetics and the details of these cracks. Moreover, we are comparing the cracks along object through two different mesh types. The first type is the Voxel like tetrahedral mesh and the second is the Delauney mesh type. In addition, we will provide two more algorithms. The first is meant to generate a tetrahedral Voxel mesh from a Voxel model. The second is used to represent a graph data structure of the tetrahedral mesh.
 Now, we will expose the papers and the Math material on which we based ourselves for this project.
 
 ## 2. Technical Background
@@ -64,7 +64,7 @@ $$T^{(e_{i})} = \sigma\cdot e_i \qquad e_i \space \bot \space Surface $$
 As we can see, there is a relationship between the traction vectors and the stress components. But what interest us the most now is the eigenvalues and vectors of $\sigma$. 
  ![Visualization of the stress components in the stress tensor and the tractions vectors](images/Components_stress_tensor_cartesian.svg) | 
 |:--:| 
-| *Visualization of the stress components in the stress tensor and the tractions vectors* |
+| *Visualization of the stress components in the stress tensor and the traction vectors* |
 
 Indeed, *O'Brien et al.* proposed to find the maximum tensile stresses in the object. This can be done by finding the tetrahedrons with the maximum eigenvalues. Then the fracture plan is computed as in the direction with the greatest stress. This is equivalent in finding the eigenvector relative to the maximum eigenvalue of the tensor. Formally, we can extract the following from $\sigma$.
 
@@ -109,7 +109,7 @@ Everything began in early September. We needed software to design voxels models 
 
 | ![cat.png](./images/cat.png) | 
 |:--:| 
-| *Cat voxel model* |
+| *Cat Voxel model from MagikaVoxel* |
 
 
 After that we contacted Julian Panetta and he gave us some useful knowledge about physics simulations. This knowledge has already been described in the technical section. The process of reading the articles taught us the basics of physics simulation, all the relevant terms related and allowed us to make a plan for the project. Indeed we decided to go with a linear elasticity simulation on hexahedral (cubes) meshes. 
@@ -167,7 +167,7 @@ Moreover the library outputs files in MSH format. We used MeshIO in order to rea
 | *Object deformed by twisting rendered with ipyvolume* |
 
 
-After that, we needed to compute the stress inside the object as stated in the technical section. We used numpy to extract the eigenvalues and eigenvectors of each element from the output of the simulation. We then kept the eigenvector with the highest related eigenvalue. This gives us a vector field of the stress inside the object and we can thus visualize it. 
+After that, we needed to compute the stress inside the object as stated in the technical section. We used Numpy to extract the eigenvalues and eigenvectors of each element from the output of the simulation. We then kept the eigenvector with the highest related eigenvalue. This gives us a vector field of the stress inside the object and we can thus visualize it. 
 
 | ![stress.png](./images/stress.png) | 
 |:--:| 
@@ -357,7 +357,7 @@ This first example is a chair where, as you can see on the above plots, the forc
 | *Chair model with the Delauney triangulation* |
 
 ##### 4.2.1.3 Comparison
-The first thing that comes to our mind by looking at the crack "line" is the difference in details and the irregularity of the cracks. The Voxel crack is more detailed and is very structured. In opposition, the Delauney mesh is very coarsed and irregular. Indeed, both examples are very asymetric. Our personnal opinion is that the Delauney mesh crack looks better. This is due to this coarse irregularity which is pleasing to look at. Now, let's observe the next example.
+The first thing that comes to our mind by looking at the crack "line" is the difference in details and the irregularity of the cracks. The Voxel crack is more detailed and is very structured. In opposition, the Delauney mesh is very coarse and irregular. Indeed, both examples are very asymmetric. Our personal opinion is that the Delauney mesh crack looks better. This is due to this coarse irregularity which is pleasing to look at. Now, let's observe the next example.
 
 
 #### 4.2.2 The Horizontal tower
@@ -384,28 +384,45 @@ This next example is a tower. As you can observe on the plots and images bellow,
 | *Tower model with the Delauney triangulation* |
 
 ##### 4.2.2.3 Comparison
-As we can observe on the plots and the images, both cracks happened around the same place of the tower. Our Voxel mesh crack is very straight and does not look very realist. But it has its charm. The crack is not very detailed and is regular. The fracture is also very local and does not spread across the object. To abord the Delauney mesh, we can see that the crack occured at a slightly higher X position than for our Voxel mesh. Moreover, the crack is more sparsed across the X axis. In addition, We can also observe an higher amount of detail around the separation location. Finally, we can see that the crack is not orhtogonal to the horizon for both objects. In our opinion, the Delauney mesh looks more pleasing even if our Voxel mesh crack has a certain amount of charm. Now, we will do a conclusion of our comparisions and try to pull out interesting facts.
+As we can observe on the plots and the images, both cracks happened around the same place of the tower. Our Voxel mesh crack is very straight and does not look very realist. But it has its charm. The crack is not very detailed and is regular. The fracture is also very local and does not spread across the object. To aboard the Delauney mesh, we can see that the crack occurred at a slightly higher X position than for our Voxel mesh. Moreover, the crack is more sparse across the X axis. In addition, We can also observe an higher amount of detail around the separation location. Finally, we can see that the crack is not orthogonal to the horizon for both objects. In our opinion, the Delauney mesh looks more pleasing even if our Voxel mesh crack has a certain amount of charm. Now, we will do a conclusion of our comparisons and try to pull out interesting facts.
 
 #### 4.2.3 Analysis and Conclusion
-Finally, in order to conclude our eastetics comparision, we have contemplated both our Voxel meshes and the Delauney meshes cracks. We could see a trend for our Voxel mesh to be very straight, regular and very local to the weak point. As opposed to that, the Delauney meshes were coarser, irregular and more sparse across the object. 
-We think that for a crack to be pleasant to watch, there must be the presence of irregularity both in the location of the crack and in the separation area. In our opinion, this irregularity is pleasant to contemplate because it surpises the reader. We think this little amazement is at the origin of the beauty of destructible objects. 
+Finally, in order to conclude our ascetics comparison, we have contemplated both our Voxel meshes and the Delauney meshes cracks. We could see a trend for our Voxel mesh to be very straight, regular and very local to the weak point. As opposed to that, the Delauney meshes were coarser, irregular and more sparse across the object. 
+We think that for a crack to be pleasant to watch, there must be the presence of irregularity both in the location of the crack and in the separation area. In our opinion, this irregularity is pleasant to contemplate because it surprises the reader. We think this little amazement is at the origin of the beauty of destructible objects. 
 Now that we have finished to look at our different meshes, we are going to conclude our work.
 
 #### 4.3 Conclusion about our examples
-In this last time, we conclude our work and analysis. We have compared our both crack methods and our both meshes types. Regarding the crack policies, we have observed that the heursitics seemed to have a better look but was sometimes suffering a lack of physical meaning. On the other hand, the one by one policy was looking okay but it was not exiting. Nevertheless, the policy 1 always matched our physical intuition. 
-In order to continue our conclusion, we want to talk about the two meshes divisions strategies. Indeed, we have compared our Voxel meshes triangluation with the Delauney mesh triangulation. We saw that our Voxel triangulation makes regular, local and not detailed cracks. On the other hand, we saw that the Delauney was quite the opposite with sparse cracks and more irrgularity. 
+In this last time, we conclude our work and analysis. We have compared our both crack methods and our both meshes types. Regarding the crack policies, we have observed that the heuristics seemed to have a better look but was sometimes suffering a lack of physical meaning. On the other hand, the one by one policy was looking okay but it was not exiting. Nevertheless, the policy 1 always matched our physical intuition. 
+In order to continue our conclusion, we want to talk about the two meshes divisions strategies. Indeed, we have compared our Voxel meshes triangulation with the Delauney mesh triangulation. We saw that our Voxel triangulation makes regular, local and not detailed cracks. On the other hand, we saw that the Delauney was quite the opposite with sparse cracks and more irregularity. 
 
-In overall, we think that for the cracks method the beauty of the fracture depend a lot on the object topology and where the forces are applied. We would prefere the heuristics based method as it gave better looking results. For the mesh division part, we would prefer the disordered results because they were more pleasing. These kind of results were achieved with coarse Delauney meshes. 
+In overall, we think that for the cracks method the beauty of the fracture depend a lot on the object topology and where the forces are applied. We would prefer the heuristics based method as it gave better looking results. For the mesh division part, we would prefer the disordered results because they were more pleasing. These kind of results were achieved with coarse Delauney meshes. 
 
-Finally, in a video game context, we could definitly prefer to use the heuristics with Delauney meshes. Indeed, the better looking results were obtained with this combination. Nevertheless, our Voxel meshes gave quite a unique look and are unusual which is worth to note before we put an end to this paragraph. Indeed, this section exposing about our results is now finished and we will direct ourselves toward the final conclusion.
+Finally, in a video game context, we could definitely prefer to use the heuristics with Delauney meshes. Indeed, the better looking results were obtained with this combination. Nevertheless, our Voxel meshes gave quite a unique look and are unusual which is worth to note before we put an end to this paragraph. Indeed, this section exposing about our results is now finished and we will direct ourselves toward the final conclusion.
  
-## 4. Conclusion and Final words
-Finally, in this last section, we will conclude our work. In a first time, we will sum up our contributions and and in a second time we will proceed to talk about some potential futur work. 
+## 5. Conclusion and Final words
+Finally, in this last section, we will conclude our work. In a first time, we will sum up our contributions and and in a second time we will proceed to talk about some potential future work. 
 
 Our contributions were made of algorithms and experiments. We proposed an algorithm to generate tetrahedral meshes with a Voxel look. We also proposed an algorithm to represent efficiently tetrahedral mesh as a graph data structures. 
-On the experiments side, we compared two methods for cracks computation, the first one was physically accurate and the second was based on heuristics. We also compared, through the heuristic based method, two mesh division methods. The first division was our own Voxel division and the second one was the Delauney triangulation. Now that we have reminded the reader of our contribution, we will explain potential futur work.
+On the experiments side, we compared two methods for cracks computation, the first one was physically accurate and the second was based on heuristics. We also compared, through the heuristic based method, two mesh division methods. The first division was our own Voxel division and the second one was the Delauney triangulation. Now that we have reminded the reader of our contribution, we will explain potential future work.
 
 Indeed, our initial goal when starting the project was to implement a real time simulation. This would be very interesting to create as it would allow us to explore objects destruction in an interactive manner. We would implement the heuristics based method with Delauney meshes as it seemed more suitable for a real-time application. Moreover, it would be interesting to customize the heuristics policy in the following manner. We could use noise to deform the cracking plane and remove this effect of "straight division" that we could observe on some objects. In other words, we could guess the orientation of the plane for some object cracks and this removed a part of the magic behind the simulation. In order to counter this effect, we could use 2D Perlin noise values as an offset to select which tetrahedrons to remove when the object would crack. 
-These extentions would be very interesting to implements. However, this reports is comming to its end.
+These extensions would be very interesting to implements. However, this reports is coming to its end.
 
-Indeed, in order to fully conclude this project, I would like to thanks Krzysztof who accepted to supervise this project. His help was precious and much appreciated. He helped me select the path I took for this project and this was very helpful. I aslo wanted to thanks Julian Panetta who gave us some very useful papers to read.
+Indeed, in order to fully conclude this project, I would like to thanks Krzysztof who accepted to supervise this project. His help was precious and much appreciated. He helped me select the path I took for this project and this was very helpful. I also wanted to thanks Julian Panetta who gave us some very useful papers to read.
+
+## 6. References
+
+### Articles 
+* [*O'Brien et al. 99*](http://graphics.berkeley.edu/papers/Obrien-GMA-1999-08/Obrien-GMA-1999-08.pdf)
+* [*Muller et al. 01*](http://csbio.unc.edu/mcmillan/pubs/EWAS01_Mueller.pdf)
+* [*Parker et al. 09*](http://graphics.berkeley.edu/papers/Parker-RTD-2009-08/Parker-RTD-2009-08.pdf)
+
+### Web pages
+* [Cauchy stress tensor](https://en.wikipedia.org/wiki/Cauchy_stress_tensor)
+* [Delauney Triangulation](https://fr.wikipedia.org/wiki/Triangulation_de_Delaunay)
+
+### Images
+* [Teardown](https://www.teardowngame.com/)
+* [Delauney Triangulation](https://fr.wikipedia.org/wiki/Triangulation_de_Delaunay) 
+* [Stress tensor](https://en.wikipedia.org/wiki/Cauchy_stress_tensor)
+* [5 tetrahedron](https://www.ics.uci.edu/~eppstein/projects/tetra/)
