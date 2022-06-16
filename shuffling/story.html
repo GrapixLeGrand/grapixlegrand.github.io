@@ -66,7 +66,7 @@ with random_shuffle from the stdandard library and we saw a huge difference.
 - modulo (30 c per call?) =&gt; constant overhead
 - rand (~70 c per call) =&gt; constant overhead.
 - shifting =&gt; n^2 complexity!</p>
-<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_1.png" alt="alt text"></p>
+<p><img src="story_pictures/save/story_1.png" alt="alt text"></p>
 <h1 id="part-2">Part 2</h1>
 <p>Fisher Yates (Wikipedia)</p>
 <pre><code><code><div>for i from n−1 downto 1 do
@@ -85,7 +85,7 @@ with the compilation flags as defined beat the std random shuffle. We can observ
 The random number generation and the modulo. We'll investigate of a possible better way of
 generating the random numbers. We'll focus on the rand function.
 @param args</p>
-<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_2.png" alt="alt text"></p>
+<p><img src="story_pictures/save/story_2.png" alt="alt text"></p>
 <h1 id="part-3">Part 3</h1>
 <p>Hypothesis: (story 3) rand seemed to be slow and so we decided to investigate
 by getting a chunk of random numbers from the dev/urandom device of our computer.
@@ -112,7 +112,7 @@ we'll try to measure the time it takes to purely generate random numbers. We'll 
 try to find what entropy each method is providing. We therefore open a
 parenthesis to experiments 2 and 3 (go and read them and go back here).
 After these, we will time purely the permutation for each method =&gt; experiment 4.</p>
-<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_3.png" alt="alt text"></p>
+<p><img src="story_pictures/save/story_3.png" alt="alt text"></p>
 <h1 id="part-4">Part 4</h1>
 <h2 id="experiment-2">Experiment 2</h2>
 <p>Bellow are the tools for benchmarking the entropy of each
@@ -122,7 +122,7 @@ rand and urandom have the same entropy and the entropy of the custom lcg is lowe
 than rand and urandom. This experiment was more of a check to see what was happening.</p>
 <p>Questioning: It will be interesting to see how the randomness influence WP2.
 Next to investigate: None for now, see exp 3.</p>
-<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_4_1.png" alt="alt text"></p>
+<p><img src="story_pictures/save/story_4_1.png" alt="alt text"></p>
 <h2 id="experiment-3">Experiment 3</h2>
 <p>Bellow are the tools for benchmarking the times it takes to purely
 generate random numbers. The bellow tools acutally uses the permutation_args_t
@@ -135,7 +135,7 @@ The fast_rand inlined method seemed to even reached the dummy store example. Thi
 concern as it might well be that the cache is the bottleneck with scattered reads/writes.</p>
 <p>Next to investigate: We could try to pregenerate some random permutation and permute the index
 array with it. =&gt; go back to story 3.</p>
-<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_4_2.png" alt="alt text"></p>
+<p><img src="story_pictures/save/story_4_2.png" alt="alt text"></p>
 <h1 id="part-5">Part 5</h1>
 <h2 id="experiment-4">Experiment 4</h2>
 <p>Here we want to see how much time it takes to only permute the numbers with pregnerated random
@@ -147,7 +147,7 @@ the permutation. We also see that urandom is actually the slowest method by far.
 <p>Next question: What is the distribution of theses numbers. Since generating is not the bottleneck,
 the permutation is. And so, all this is about is access patterns. We wan't to see how the numbers
 are actually represented.</p>
-<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_5.png" alt="alt text"></p>
+<p><img src="story_pictures/save/story_5.png" alt="alt text"></p>
 <p>We came with a very simple die trial experiment. We have a die with 100000 sides (hopefully not faked) and we throw it 100 times with each method. We hope to see a distorted and grouped distribution for the fastest method.</p>
 <p>Hyp: Stack overflow method is the most grouped method
 Results: We can observe on the plot bellow that indeed the die was piped with the manual method
@@ -166,7 +166,7 @@ L3 cache:                        6 MiB
 </div></code></code></pre>
 <p>We are manipulating 32 bits ints so 32000 ints can be stored in the L1. This endorse the cause of the speedup to be the cache.
 (Note: since 8 ints are loaded in every accesses, depending on how sparse the accesses are, conflicts misses can occurs! We need to investigate that).</p>
-<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_6.png" alt="alt text"></p>
+<p><img src="story_pictures/save/story_6.png" alt="alt text"></p>
 <p>All these experiments implies a certain amount of questions.</p>
 <ul>
 <li>What is the runtime portion of the permutations in the MC algorithm?</li>
@@ -175,7 +175,7 @@ L3 cache:                        6 MiB
 <p>We need to answer these questions in order to choose the right approach.</p>
 <h1 id="part-6">Part 6</h1>
 <p>In the last part we saw that the distrubution of the random numbers could affect the performances. In this part we achieved benchmarking the shapely algorithm by plotting a variation of N, T and K. We could show the runtime in cycles as well as the total error sum. The results can be observed bellow.</p>
-<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_9_1.png" alt="alt text"></p>
+<p><img src="story_pictures/save/story_9_1.png" alt="alt text"></p>
 <p>The error is computed as the sum of the total relative difference. Meaning that values very close to zero imply a good accuracy. In order to compute the error we compared the result of the MC algorithm with the WP1 version. The latter was compared against the given python baseline. Moreover, the default values for each parameter (when not varying) are <code>default_N=500, default_T=300, default_K=10</code>. In order to question ourselves in a more acurrate way we want to have the max heap as for know it looks like K is blowing everything. We want to add here for the record that the permutation function used is <code>generate_random_permutations_v2</code>.</p>
 <p>We also need to keep in mind the following:</p>
 <ul>
@@ -199,14 +199,14 @@ We will therefore try to do the following:</p>
 <p>Hypothesis:</p>
 <p>This is a bit weird but we suppose there can be a tradeoff between accuracy and performances (algo need random but random can imply more work).</p>
 <p>Here are the results, note that v5 is using Antoine's max heap against all other v's using the stl one.</p>
-<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_9_2.png" alt="alt text"></p>
+<p><img src="story_pictures/save/story_9_2.png" alt="alt text"></p>
 <ul>
 <li>1 - Very interesting! We can see that v2 is indeed faster than v1 and so this would imply that generating the randoms each time is a loss of time and can be approximated by shuffling the existing generated numbers as we can see that the error rate stays almost the same.</li>
 <li>2 - Again very intersting as v3 and v4 are the fastest. Definitly, generating less random numbers does something to the runtime <strong>and</strong> in this case to the error. You can see that v3 has a much worse error rate than v4. The latter still shuffles the random numbers once for every test set. However, we can see that v4 performances are not different from v3 which shows a potential optimal option to manipulate these random numbers.</li>
 </ul>
 <p>The next thing to try is to compare v4 (our best in terms of tradeoff) when implmented with Antoine's heap.</p>
 <p>Let's see the results bellow. The v6 one is Antoine's max heap + v4.</p>
-<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_9_3.png" alt="alt text"></p>
+<p><img src="story_pictures/save/story_9_3.png" alt="alt text"></p>
 <ul>
 <li>faster and still reseaonably accurate =&gt; better</li>
 </ul>
@@ -215,9 +215,9 @@ We will therefore try to do the following:</p>
 <p>In part 6, we saw randomness affects performances, we think there are two factors, first the range of the numbers which obviously affect the spatial locality and then the conflicts. In fact, if the access are scattered among some range, we are more likely to evict some cache line du to conflict and this will pretty much destroy temporal locality on the cache lines. Therefore, last time we asks some questions about the MC algorithm, however, we had an idea.</p>
 <p>Intuitevely, this indea of locality seems, at least at first glance, related to the cache sparse access. Therefore, in order to get better performance, we need to make these accesses more organise. This is why the question is: How could we enhance locality and how could this affect randomness? To this question we modeled the problem as followed: Let's simulate Yates wihtout performing any swaps and consider the permuted indices over a 64 bytes aligned region. We can model our problem as a graph were nodes are the cache lines and the edges are the Yates swaps that we simulated and recorded. We then can sort lexicographically the edges. After that, we go through the sorted edges and swap the indices of the array by the two indices recorder (from some Yates swap).
 We think that both the temporal and spatial locality could be increased as the same cache line will be reused for each elements (as they now get the same node index). The spacial locality is not perfect but certainly it will be increased too. Indeed, we will most likely first swap with nearby cache lines. For this experiment, we did not measured the sorting step and we compared the runtimes with the other swapping methods. We can observe bellow the number of cycles needed to swap only using our method. Both plots are showing the same data but not for the same ranges. We can see that with small sizes, our algorithm perfoms almost 2 times better certainly because it reduces internal cache conflicts. However, we'd like to remin that we haven't count the prepocessing step which would cost a lot as it would be <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(nlogn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>. We might have an idea to counter that but for now, we'd like to see if there are any differences with the randomness.</p>
-<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_7_2.png" alt="alt text"></p>
+<p><img src="story_pictures/save/story_7_2.png" alt="alt text"></p>
 <p>As we can see on the plot bellow, we ran a dice experiment where on every round we generate random numbers. We then find the bucket where this particular number fell into. As we can see, we get fairly similar results as using rand. Therefore, we could argue that our method is at least not damaging too much the randomess. The experiment was realized by running 1000000 times the thing.</p>
-<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_7_1.png" alt="alt text"></p>
+<p><img src="story_pictures/save/story_7_1.png" alt="alt text"></p>
 <h1 id="part-8">Part 8</h1>
 <p>We tried to sort small 16 int arrays. We tried three technics:</p>
 <ul>
@@ -232,22 +232,22 @@ We think that both the temporal and spatial locality could be increased as the s
 <li>Network sort AVX: 91.11 cycles</li>
 </ul>
 <p>The conditional moves network sort is the Green's one as shown bellow (Marianczuk 19 <a href="https://arxiv.org/pdf/1908.08111.pdf">https://arxiv.org/pdf/1908.08111.pdf</a>)</p>
-<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/sorting/green.gif" alt="alt text"></p>
+<p><img src="story_pictures/sorting/green.gif" alt="alt text"></p>
 <p>The AVX network sort was implemented from this image (<a href="https://hal.inria.fr/hal-01512970v1/document">https://hal.inria.fr/hal-01512970v1/document</a>):</p>
-<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/sorting/bitsort.png" alt="alt text"></p>
+<p><img src="story_pictures/sorting/bitsort.png" alt="alt text"></p>
 <h1 id="how-does-it-scale-upon-multiple-permutations">How does it scale upon multiple permutations?</h1>
-<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_10_1.png" alt="alt text"></p>
-<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_10_2.png" alt="alt text"></p>
-<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_10_3.png" alt="alt text"></p>
-<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_10_4.png" alt="alt text"></p>
+<p><img src="story_pictures/save/story_10_1.png" alt="alt text"></p>
+<p><img src="story_pictures/save/story_10_2.png" alt="alt text"></p>
+<p><img src="story_pictures/save/story_10_3.png" alt="alt text"></p>
+<p><img src="story_pictures/save/story_10_4.png" alt="alt text"></p>
 <h1 id="final-questions">final questions</h1>
-<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/sorting/network_love/network_64.png" alt="alt text"></p>
+<p><img src="story_pictures/sorting/network_love/network_64.png" alt="alt text"></p>
 <p>A 64 sorting network (<a href="https://bertdobbelaere.github.io/sorting_networks_extended.html#N64L521D21">https://bertdobbelaere.github.io/sorting_networks_extended.html#N64L521D21</a>)</p>
-<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_12_1.png" alt="alt text"></p>
+<p><img src="story_pictures/save/story_12_1.png" alt="alt text"></p>
 <h1 id="can-we-do-better-">CAN WE DO BETTER ???????</h1>
-<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_12_2.png" alt="alt text">
-<img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_12_6.png" alt="alt text"></p>
-<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/sorting/network_love/crying.jpg" alt="alt text"></p>
+<p><img src="story_pictures/save/story_12_2.png" alt="alt text">
+<img src="story_pictures/save/story_12_6.png" alt="alt text"></p>
+<p><img src="story_pictures/sorting/network_love/crying.jpg" alt="alt text"></p>
 <h1 id="larger-size-">LARGER SIZE ???????</h1>
 <pre><code><code><div>void nine_tails_yates(uint32_t* values, uint32_t size) {
     
@@ -271,8 +271,8 @@ We think that both the temporal and spatial locality could be increased as the s
 
 }
 </div></code></code></pre>
-<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/sorting/network_love/nine_tail_incorrect.png" alt="alt text"></p>
-<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/sorting/network_love/oupsssssssy.png" alt="alt text"></p>
+<p><img src="story_pictures/sorting/network_love/nine_tail_incorrect.png" alt="alt text"></p>
+<p><img src="story_pictures/sorting/network_love/oupsssssssy.png" alt="alt text"></p>
 <p>TODO see Daniel Lemire</p>
 
         <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
