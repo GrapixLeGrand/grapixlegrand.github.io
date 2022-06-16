@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>A small study of shuffling</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension vscode.markdown-math */
+@font-face{font-family:KaTeX_AMS;font-style:normal;font-weight:400;src:url(fonts/KaTeX_AMS-Regular.woff2) format("woff2"),url(fonts/KaTeX_AMS-Regular.woff) format("woff"),url(fonts/KaTeX_AMS-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Caligraphic;font-style:normal;font-weight:700;src:url(fonts/KaTeX_Caligraphic-Bold.woff2) format("woff2"),url(fonts/KaTeX_Caligraphic-Bold.woff) format("woff"),url(fonts/KaTeX_Caligraphic-Bold.ttf) format("truetype")}@font-face{font-family:KaTeX_Caligraphic;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Caligraphic-Regular.woff2) format("woff2"),url(fonts/KaTeX_Caligraphic-Regular.woff) format("woff"),url(fonts/KaTeX_Caligraphic-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Fraktur;font-style:normal;font-weight:700;src:url(fonts/KaTeX_Fraktur-Bold.woff2) format("woff2"),url(fonts/KaTeX_Fraktur-Bold.woff) format("woff"),url(fonts/KaTeX_Fraktur-Bold.ttf) format("truetype")}@font-face{font-family:KaTeX_Fraktur;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Fraktur-Regular.woff2) format("woff2"),url(fonts/KaTeX_Fraktur-Regular.woff) format("woff"),url(fonts/KaTeX_Fraktur-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Main;font-style:normal;font-weight:700;src:url(fonts/KaTeX_Main-Bold.woff2) format("woff2"),url(fonts/KaTeX_Main-Bold.woff) format("woff"),url(fonts/KaTeX_Main-Bold.ttf) format("truetype")}@font-face{font-family:KaTeX_Main;font-style:italic;font-weight:700;src:url(fonts/KaTeX_Main-BoldItalic.woff2) format("woff2"),url(fonts/KaTeX_Main-BoldItalic.woff) format("woff"),url(fonts/KaTeX_Main-BoldItalic.ttf) format("truetype")}@font-face{font-family:KaTeX_Main;font-style:italic;font-weight:400;src:url(fonts/KaTeX_Main-Italic.woff2) format("woff2"),url(fonts/KaTeX_Main-Italic.woff) format("woff"),url(fonts/KaTeX_Main-Italic.ttf) format("truetype")}@font-face{font-family:KaTeX_Main;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Main-Regular.woff2) format("woff2"),url(fonts/KaTeX_Main-Regular.woff) format("woff"),url(fonts/KaTeX_Main-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Math;font-style:italic;font-weight:700;src:url(fonts/KaTeX_Math-BoldItalic.woff2) format("woff2"),url(fonts/KaTeX_Math-BoldItalic.woff) format("woff"),url(fonts/KaTeX_Math-BoldItalic.ttf) format("truetype")}@font-face{font-family:KaTeX_Math;font-style:italic;font-weight:400;src:url(fonts/KaTeX_Math-Italic.woff2) format("woff2"),url(fonts/KaTeX_Math-Italic.woff) format("woff"),url(fonts/KaTeX_Math-Italic.ttf) format("truetype")}@font-face{font-family:"KaTeX_SansSerif";font-style:normal;font-weight:700;src:url(fonts/KaTeX_SansSerif-Bold.woff2) format("woff2"),url(fonts/KaTeX_SansSerif-Bold.woff) format("woff"),url(fonts/KaTeX_SansSerif-Bold.ttf) format("truetype")}@font-face{font-family:"KaTeX_SansSerif";font-style:italic;font-weight:400;src:url(fonts/KaTeX_SansSerif-Italic.woff2) format("woff2"),url(fonts/KaTeX_SansSerif-Italic.woff) format("woff"),url(fonts/KaTeX_SansSerif-Italic.ttf) format("truetype")}@font-face{font-family:"KaTeX_SansSerif";font-style:normal;font-weight:400;src:url(fonts/KaTeX_SansSerif-Regular.woff2) format("woff2"),url(fonts/KaTeX_SansSerif-Regular.woff) format("woff"),url(fonts/KaTeX_SansSerif-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Script;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Script-Regular.woff2) format("woff2"),url(fonts/KaTeX_Script-Regular.woff) format("woff"),url(fonts/KaTeX_Script-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Size1;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Size1-Regular.woff2) format("woff2"),url(fonts/KaTeX_Size1-Regular.woff) format("woff"),url(fonts/KaTeX_Size1-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Size2;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Size2-Regular.woff2) format("woff2"),url(fonts/KaTeX_Size2-Regular.woff) format("woff"),url(fonts/KaTeX_Size2-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Size3;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Size3-Regular.woff2) format("woff2"),url(fonts/KaTeX_Size3-Regular.woff) format("woff"),url(fonts/KaTeX_Size3-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Size4;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Size4-Regular.woff2) format("woff2"),url(fonts/KaTeX_Size4-Regular.woff) format("woff"),url(fonts/KaTeX_Size4-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Typewriter;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Typewriter-Regular.woff2) format("woff2"),url(fonts/KaTeX_Typewriter-Regular.woff) format("woff"),url(fonts/KaTeX_Typewriter-Regular.ttf) format("truetype")}.katex{text-rendering:auto;font:normal 1.21em KaTeX_Main,Times New Roman,serif;line-height:1.2;text-indent:0}.katex *{-ms-high-contrast-adjust:none!important;border-color:currentColor}.katex .katex-version:after{content:"0.13.24"}.katex .katex-mathml{clip:rect(1px,1px,1px,1px);border:0;height:1px;overflow:hidden;padding:0;position:absolute;width:1px}.katex .katex-html>.newline{display:block}.katex .base{position:relative;white-space:nowrap;width:-webkit-min-content;width:-moz-min-content;width:min-content}.katex .base,.katex .strut{display:inline-block}.katex .textbf{font-weight:700}.katex .textit{font-style:italic}.katex .textrm{font-family:KaTeX_Main}.katex .textsf{font-family:KaTeX_SansSerif}.katex .texttt{font-family:KaTeX_Typewriter}.katex .mathnormal{font-family:KaTeX_Math;font-style:italic}.katex .mathit{font-family:KaTeX_Main;font-style:italic}.katex .mathrm{font-style:normal}.katex .mathbf{font-family:KaTeX_Main;font-weight:700}.katex .boldsymbol{font-family:KaTeX_Math;font-style:italic;font-weight:700}.katex .amsrm,.katex .mathbb,.katex .textbb{font-family:KaTeX_AMS}.katex .mathcal{font-family:KaTeX_Caligraphic}.katex .mathfrak,.katex .textfrak{font-family:KaTeX_Fraktur}.katex .mathtt{font-family:KaTeX_Typewriter}.katex .mathscr,.katex .textscr{font-family:KaTeX_Script}.katex .mathsf,.katex .textsf{font-family:KaTeX_SansSerif}.katex .mathboldsf,.katex .textboldsf{font-family:KaTeX_SansSerif;font-weight:700}.katex .mathitsf,.katex .textitsf{font-family:KaTeX_SansSerif;font-style:italic}.katex .mainrm{font-family:KaTeX_Main;font-style:normal}.katex .vlist-t{border-collapse:collapse;display:inline-table;table-layout:fixed}.katex .vlist-r{display:table-row}.katex .vlist{display:table-cell;position:relative;vertical-align:bottom}.katex .vlist>span{display:block;height:0;position:relative}.katex .vlist>span>span{display:inline-block}.katex .vlist>span>.pstrut{overflow:hidden;width:0}.katex .vlist-t2{margin-right:-2px}.katex .vlist-s{display:table-cell;font-size:1px;min-width:2px;vertical-align:bottom;width:2px}.katex .vbox{align-items:baseline;display:inline-flex;flex-direction:column}.katex .hbox{width:100%}.katex .hbox,.katex .thinbox{display:inline-flex;flex-direction:row}.katex .thinbox{max-width:0;width:0}.katex .msupsub{text-align:left}.katex .mfrac>span>span{text-align:center}.katex .mfrac .frac-line{border-bottom-style:solid;display:inline-block;width:100%}.katex .hdashline,.katex .hline,.katex .mfrac .frac-line,.katex .overline .overline-line,.katex .rule,.katex .underline .underline-line{min-height:1px}.katex .mspace{display:inline-block}.katex .clap,.katex .llap,.katex .rlap{position:relative;width:0}.katex .clap>.inner,.katex .llap>.inner,.katex .rlap>.inner{position:absolute}.katex .clap>.fix,.katex .llap>.fix,.katex .rlap>.fix{display:inline-block}.katex .llap>.inner{right:0}.katex .clap>.inner,.katex .rlap>.inner{left:0}.katex .clap>.inner>span{margin-left:-50%;margin-right:50%}.katex .rule{border:0 solid;display:inline-block;position:relative}.katex .hline,.katex .overline .overline-line,.katex .underline .underline-line{border-bottom-style:solid;display:inline-block;width:100%}.katex .hdashline{border-bottom-style:dashed;display:inline-block;width:100%}.katex .sqrt>.root{margin-left:.27777778em;margin-right:-.55555556em}.katex .fontsize-ensurer.reset-size1.size1,.katex .sizing.reset-size1.size1{font-size:1em}.katex .fontsize-ensurer.reset-size1.size2,.katex .sizing.reset-size1.size2{font-size:1.2em}.katex .fontsize-ensurer.reset-size1.size3,.katex .sizing.reset-size1.size3{font-size:1.4em}.katex .fontsize-ensurer.reset-size1.size4,.katex .sizing.reset-size1.size4{font-size:1.6em}.katex .fontsize-ensurer.reset-size1.size5,.katex .sizing.reset-size1.size5{font-size:1.8em}.katex .fontsize-ensurer.reset-size1.size6,.katex .sizing.reset-size1.size6{font-size:2em}.katex .fontsize-ensurer.reset-size1.size7,.katex .sizing.reset-size1.size7{font-size:2.4em}.katex .fontsize-ensurer.reset-size1.size8,.katex .sizing.reset-size1.size8{font-size:2.88em}.katex .fontsize-ensurer.reset-size1.size9,.katex .sizing.reset-size1.size9{font-size:3.456em}.katex .fontsize-ensurer.reset-size1.size10,.katex .sizing.reset-size1.size10{font-size:4.148em}.katex .fontsize-ensurer.reset-size1.size11,.katex .sizing.reset-size1.size11{font-size:4.976em}.katex .fontsize-ensurer.reset-size2.size1,.katex .sizing.reset-size2.size1{font-size:.83333333em}.katex .fontsize-ensurer.reset-size2.size2,.katex .sizing.reset-size2.size2{font-size:1em}.katex .fontsize-ensurer.reset-size2.size3,.katex .sizing.reset-size2.size3{font-size:1.16666667em}.katex .fontsize-ensurer.reset-size2.size4,.katex .sizing.reset-size2.size4{font-size:1.33333333em}.katex .fontsize-ensurer.reset-size2.size5,.katex .sizing.reset-size2.size5{font-size:1.5em}.katex .fontsize-ensurer.reset-size2.size6,.katex .sizing.reset-size2.size6{font-size:1.66666667em}.katex .fontsize-ensurer.reset-size2.size7,.katex .sizing.reset-size2.size7{font-size:2em}.katex .fontsize-ensurer.reset-size2.size8,.katex .sizing.reset-size2.size8{font-size:2.4em}.katex .fontsize-ensurer.reset-size2.size9,.katex .sizing.reset-size2.size9{font-size:2.88em}.katex .fontsize-ensurer.reset-size2.size10,.katex .sizing.reset-size2.size10{font-size:3.45666667em}.katex .fontsize-ensurer.reset-size2.size11,.katex .sizing.reset-size2.size11{font-size:4.14666667em}.katex .fontsize-ensurer.reset-size3.size1,.katex .sizing.reset-size3.size1{font-size:.71428571em}.katex .fontsize-ensurer.reset-size3.size2,.katex .sizing.reset-size3.size2{font-size:.85714286em}.katex .fontsize-ensurer.reset-size3.size3,.katex .sizing.reset-size3.size3{font-size:1em}.katex .fontsize-ensurer.reset-size3.size4,.katex .sizing.reset-size3.size4{font-size:1.14285714em}.katex .fontsize-ensurer.reset-size3.size5,.katex .sizing.reset-size3.size5{font-size:1.28571429em}.katex .fontsize-ensurer.reset-size3.size6,.katex .sizing.reset-size3.size6{font-size:1.42857143em}.katex .fontsize-ensurer.reset-size3.size7,.katex .sizing.reset-size3.size7{font-size:1.71428571em}.katex .fontsize-ensurer.reset-size3.size8,.katex .sizing.reset-size3.size8{font-size:2.05714286em}.katex .fontsize-ensurer.reset-size3.size9,.katex .sizing.reset-size3.size9{font-size:2.46857143em}.katex .fontsize-ensurer.reset-size3.size10,.katex .sizing.reset-size3.size10{font-size:2.96285714em}.katex .fontsize-ensurer.reset-size3.size11,.katex .sizing.reset-size3.size11{font-size:3.55428571em}.katex .fontsize-ensurer.reset-size4.size1,.katex .sizing.reset-size4.size1{font-size:.625em}.katex .fontsize-ensurer.reset-size4.size2,.katex .sizing.reset-size4.size2{font-size:.75em}.katex .fontsize-ensurer.reset-size4.size3,.katex .sizing.reset-size4.size3{font-size:.875em}.katex .fontsize-ensurer.reset-size4.size4,.katex .sizing.reset-size4.size4{font-size:1em}.katex .fontsize-ensurer.reset-size4.size5,.katex .sizing.reset-size4.size5{font-size:1.125em}.katex .fontsize-ensurer.reset-size4.size6,.katex .sizing.reset-size4.size6{font-size:1.25em}.katex .fontsize-ensurer.reset-size4.size7,.katex .sizing.reset-size4.size7{font-size:1.5em}.katex .fontsize-ensurer.reset-size4.size8,.katex .sizing.reset-size4.size8{font-size:1.8em}.katex .fontsize-ensurer.reset-size4.size9,.katex .sizing.reset-size4.size9{font-size:2.16em}.katex .fontsize-ensurer.reset-size4.size10,.katex .sizing.reset-size4.size10{font-size:2.5925em}.katex .fontsize-ensurer.reset-size4.size11,.katex .sizing.reset-size4.size11{font-size:3.11em}.katex .fontsize-ensurer.reset-size5.size1,.katex .sizing.reset-size5.size1{font-size:.55555556em}.katex .fontsize-ensurer.reset-size5.size2,.katex .sizing.reset-size5.size2{font-size:.66666667em}.katex .fontsize-ensurer.reset-size5.size3,.katex .sizing.reset-size5.size3{font-size:.77777778em}.katex .fontsize-ensurer.reset-size5.size4,.katex .sizing.reset-size5.size4{font-size:.88888889em}.katex .fontsize-ensurer.reset-size5.size5,.katex .sizing.reset-size5.size5{font-size:1em}.katex .fontsize-ensurer.reset-size5.size6,.katex .sizing.reset-size5.size6{font-size:1.11111111em}.katex .fontsize-ensurer.reset-size5.size7,.katex .sizing.reset-size5.size7{font-size:1.33333333em}.katex .fontsize-ensurer.reset-size5.size8,.katex .sizing.reset-size5.size8{font-size:1.6em}.katex .fontsize-ensurer.reset-size5.size9,.katex .sizing.reset-size5.size9{font-size:1.92em}.katex .fontsize-ensurer.reset-size5.size10,.katex .sizing.reset-size5.size10{font-size:2.30444444em}.katex .fontsize-ensurer.reset-size5.size11,.katex .sizing.reset-size5.size11{font-size:2.76444444em}.katex .fontsize-ensurer.reset-size6.size1,.katex .sizing.reset-size6.size1{font-size:.5em}.katex .fontsize-ensurer.reset-size6.size2,.katex .sizing.reset-size6.size2{font-size:.6em}.katex .fontsize-ensurer.reset-size6.size3,.katex .sizing.reset-size6.size3{font-size:.7em}.katex .fontsize-ensurer.reset-size6.size4,.katex .sizing.reset-size6.size4{font-size:.8em}.katex .fontsize-ensurer.reset-size6.size5,.katex .sizing.reset-size6.size5{font-size:.9em}.katex .fontsize-ensurer.reset-size6.size6,.katex .sizing.reset-size6.size6{font-size:1em}.katex .fontsize-ensurer.reset-size6.size7,.katex .sizing.reset-size6.size7{font-size:1.2em}.katex .fontsize-ensurer.reset-size6.size8,.katex .sizing.reset-size6.size8{font-size:1.44em}.katex .fontsize-ensurer.reset-size6.size9,.katex .sizing.reset-size6.size9{font-size:1.728em}.katex .fontsize-ensurer.reset-size6.size10,.katex .sizing.reset-size6.size10{font-size:2.074em}.katex .fontsize-ensurer.reset-size6.size11,.katex .sizing.reset-size6.size11{font-size:2.488em}.katex .fontsize-ensurer.reset-size7.size1,.katex .sizing.reset-size7.size1{font-size:.41666667em}.katex .fontsize-ensurer.reset-size7.size2,.katex .sizing.reset-size7.size2{font-size:.5em}.katex .fontsize-ensurer.reset-size7.size3,.katex .sizing.reset-size7.size3{font-size:.58333333em}.katex .fontsize-ensurer.reset-size7.size4,.katex .sizing.reset-size7.size4{font-size:.66666667em}.katex .fontsize-ensurer.reset-size7.size5,.katex .sizing.reset-size7.size5{font-size:.75em}.katex .fontsize-ensurer.reset-size7.size6,.katex .sizing.reset-size7.size6{font-size:.83333333em}.katex .fontsize-ensurer.reset-size7.size7,.katex .sizing.reset-size7.size7{font-size:1em}.katex .fontsize-ensurer.reset-size7.size8,.katex .sizing.reset-size7.size8{font-size:1.2em}.katex .fontsize-ensurer.reset-size7.size9,.katex .sizing.reset-size7.size9{font-size:1.44em}.katex .fontsize-ensurer.reset-size7.size10,.katex .sizing.reset-size7.size10{font-size:1.72833333em}.katex .fontsize-ensurer.reset-size7.size11,.katex .sizing.reset-size7.size11{font-size:2.07333333em}.katex .fontsize-ensurer.reset-size8.size1,.katex .sizing.reset-size8.size1{font-size:.34722222em}.katex .fontsize-ensurer.reset-size8.size2,.katex .sizing.reset-size8.size2{font-size:.41666667em}.katex .fontsize-ensurer.reset-size8.size3,.katex .sizing.reset-size8.size3{font-size:.48611111em}.katex .fontsize-ensurer.reset-size8.size4,.katex .sizing.reset-size8.size4{font-size:.55555556em}.katex .fontsize-ensurer.reset-size8.size5,.katex .sizing.reset-size8.size5{font-size:.625em}.katex .fontsize-ensurer.reset-size8.size6,.katex .sizing.reset-size8.size6{font-size:.69444444em}.katex .fontsize-ensurer.reset-size8.size7,.katex .sizing.reset-size8.size7{font-size:.83333333em}.katex .fontsize-ensurer.reset-size8.size8,.katex .sizing.reset-size8.size8{font-size:1em}.katex .fontsize-ensurer.reset-size8.size9,.katex .sizing.reset-size8.size9{font-size:1.2em}.katex .fontsize-ensurer.reset-size8.size10,.katex .sizing.reset-size8.size10{font-size:1.44027778em}.katex .fontsize-ensurer.reset-size8.size11,.katex .sizing.reset-size8.size11{font-size:1.72777778em}.katex .fontsize-ensurer.reset-size9.size1,.katex .sizing.reset-size9.size1{font-size:.28935185em}.katex .fontsize-ensurer.reset-size9.size2,.katex .sizing.reset-size9.size2{font-size:.34722222em}.katex .fontsize-ensurer.reset-size9.size3,.katex .sizing.reset-size9.size3{font-size:.40509259em}.katex .fontsize-ensurer.reset-size9.size4,.katex .sizing.reset-size9.size4{font-size:.46296296em}.katex .fontsize-ensurer.reset-size9.size5,.katex .sizing.reset-size9.size5{font-size:.52083333em}.katex .fontsize-ensurer.reset-size9.size6,.katex .sizing.reset-size9.size6{font-size:.5787037em}.katex .fontsize-ensurer.reset-size9.size7,.katex .sizing.reset-size9.size7{font-size:.69444444em}.katex .fontsize-ensurer.reset-size9.size8,.katex .sizing.reset-size9.size8{font-size:.83333333em}.katex .fontsize-ensurer.reset-size9.size9,.katex .sizing.reset-size9.size9{font-size:1em}.katex .fontsize-ensurer.reset-size9.size10,.katex .sizing.reset-size9.size10{font-size:1.20023148em}.katex .fontsize-ensurer.reset-size9.size11,.katex .sizing.reset-size9.size11{font-size:1.43981481em}.katex .fontsize-ensurer.reset-size10.size1,.katex .sizing.reset-size10.size1{font-size:.24108004em}.katex .fontsize-ensurer.reset-size10.size2,.katex .sizing.reset-size10.size2{font-size:.28929605em}.katex .fontsize-ensurer.reset-size10.size3,.katex .sizing.reset-size10.size3{font-size:.33751205em}.katex .fontsize-ensurer.reset-size10.size4,.katex .sizing.reset-size10.size4{font-size:.38572806em}.katex .fontsize-ensurer.reset-size10.size5,.katex .sizing.reset-size10.size5{font-size:.43394407em}.katex .fontsize-ensurer.reset-size10.size6,.katex .sizing.reset-size10.size6{font-size:.48216008em}.katex .fontsize-ensurer.reset-size10.size7,.katex .sizing.reset-size10.size7{font-size:.57859209em}.katex .fontsize-ensurer.reset-size10.size8,.katex .sizing.reset-size10.size8{font-size:.69431051em}.katex .fontsize-ensurer.reset-size10.size9,.katex .sizing.reset-size10.size9{font-size:.83317261em}.katex .fontsize-ensurer.reset-size10.size10,.katex .sizing.reset-size10.size10{font-size:1em}.katex .fontsize-ensurer.reset-size10.size11,.katex .sizing.reset-size10.size11{font-size:1.19961427em}.katex .fontsize-ensurer.reset-size11.size1,.katex .sizing.reset-size11.size1{font-size:.20096463em}.katex .fontsize-ensurer.reset-size11.size2,.katex .sizing.reset-size11.size2{font-size:.24115756em}.katex .fontsize-ensurer.reset-size11.size3,.katex .sizing.reset-size11.size3{font-size:.28135048em}.katex .fontsize-ensurer.reset-size11.size4,.katex .sizing.reset-size11.size4{font-size:.32154341em}.katex .fontsize-ensurer.reset-size11.size5,.katex .sizing.reset-size11.size5{font-size:.36173633em}.katex .fontsize-ensurer.reset-size11.size6,.katex .sizing.reset-size11.size6{font-size:.40192926em}.katex .fontsize-ensurer.reset-size11.size7,.katex .sizing.reset-size11.size7{font-size:.48231511em}.katex .fontsize-ensurer.reset-size11.size8,.katex .sizing.reset-size11.size8{font-size:.57877814em}.katex .fontsize-ensurer.reset-size11.size9,.katex .sizing.reset-size11.size9{font-size:.69453376em}.katex .fontsize-ensurer.reset-size11.size10,.katex .sizing.reset-size11.size10{font-size:.83360129em}.katex .fontsize-ensurer.reset-size11.size11,.katex .sizing.reset-size11.size11{font-size:1em}.katex .delimsizing.size1{font-family:KaTeX_Size1}.katex .delimsizing.size2{font-family:KaTeX_Size2}.katex .delimsizing.size3{font-family:KaTeX_Size3}.katex .delimsizing.size4{font-family:KaTeX_Size4}.katex .delimsizing.mult .delim-size1>span{font-family:KaTeX_Size1}.katex .delimsizing.mult .delim-size4>span{font-family:KaTeX_Size4}.katex .nulldelimiter{display:inline-block;width:.12em}.katex .delimcenter,.katex .op-symbol{position:relative}.katex .op-symbol.small-op{font-family:KaTeX_Size1}.katex .op-symbol.large-op{font-family:KaTeX_Size2}.katex .accent>.vlist-t,.katex .op-limits>.vlist-t{text-align:center}.katex .accent .accent-body{position:relative}.katex .accent .accent-body:not(.accent-full){width:0}.katex .overlay{display:block}.katex .mtable .vertical-separator{display:inline-block;min-width:1px}.katex .mtable .arraycolsep{display:inline-block}.katex .mtable .col-align-c>.vlist-t{text-align:center}.katex .mtable .col-align-l>.vlist-t{text-align:left}.katex .mtable .col-align-r>.vlist-t{text-align:right}.katex .svg-align{text-align:left}.katex svg{fill:currentColor;stroke:currentColor;fill-rule:nonzero;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;display:block;height:inherit;position:absolute;width:100%}.katex svg path{stroke:none}.katex img{border-style:none;max-height:none;max-width:none;min-height:0;min-width:0}.katex .stretchy{display:block;overflow:hidden;position:relative;width:100%}.katex .stretchy:after,.katex .stretchy:before{content:""}.katex .hide-tail{overflow:hidden;position:relative;width:100%}.katex .halfarrow-left{left:0;overflow:hidden;position:absolute;width:50.2%}.katex .halfarrow-right{overflow:hidden;position:absolute;right:0;width:50.2%}.katex .brace-left{left:0;overflow:hidden;position:absolute;width:25.1%}.katex .brace-center{left:25%;overflow:hidden;position:absolute;width:50%}.katex .brace-right{overflow:hidden;position:absolute;right:0;width:25.1%}.katex .x-arrow-pad{padding:0 .5em}.katex .cd-arrow-pad{padding:0 .55556em 0 .27778em}.katex .mover,.katex .munder,.katex .x-arrow{text-align:center}.katex .boxpad{padding:0 .3em}.katex .fbox,.katex .fcolorbox{border:.04em solid;box-sizing:border-box}.katex .cancel-pad{padding:0 .2em}.katex .cancel-lap{margin-left:-.2em;margin-right:-.2em}.katex .sout{border-bottom-style:solid;border-bottom-width:.08em}.katex .angl{border-right:.049em solid;border-top:.049em solid;box-sizing:border-box;margin-right:.03889em}.katex .anglpad{padding:0 .03889em}.katex .eqn-num:before{content:"(" counter(katexEqnNo) ")";counter-increment:katexEqnNo}.katex .mml-eqn-num:before{content:"(" counter(mmlEqnNo) ")";counter-increment:mmlEqnNo}.katex .mtr-glue{width:50%}.katex .cd-vert-arrow{display:inline-block;position:relative}.katex .cd-label-left{display:inline-block;position:absolute;right:calc(50% + .3em);text-align:left}.katex .cd-label-right{display:inline-block;left:calc(50% + .3em);position:absolute;text-align:right}.katex-display{display:block;margin:1em 0;text-align:center}.katex-display>.katex{display:block;text-align:center;white-space:nowrap}.katex-display>.katex>.katex-html{display:block;position:relative}.katex-display>.katex>.katex-html>.tag{position:absolute;right:0}.katex-display.leqno>.katex>.katex-html>.tag{left:0;right:auto}.katex-display.fleqn>.katex{padding-left:2em;text-align:left}body{counter-reset:katexEqnNo mmlEqnNo}
+
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.katex-error {
+	color: var(--vscode-editorError-foreground);
+}
+
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="a-small-study-of-shuffling">A small study of shuffling</h1>
+<h2 id="abstract">Abstract</h2>
+<p>This small writing is the result of our Advanced System Lab course project at ETH 2022. In this context, we were tasked to optimize algorithms present in <a href="https://arxiv.org/abs/1908.08619">arXiv:1908.08619 [cs.LG]</a>. This particular writing aims to optimize random permutations presents in Algorithm 2 of the paper.</p>
+<p>The discussion will start with an introduction without too much formalism. We'll then move on to the story of optimizing shuffling. We divided the journey in several steps. Each time we tried either to collect some clues on the problem, or to test some ideas. You'll see that through the discussion, we'll tried two of our own ideas. The first is consists of ordering shuffled access in preprocessing step and reuse the swaps in order to increase both spatial and temporal cache locality. Our second idea, named the <em>Ninetails</em>, was foolishely aiming to enhance locality. Instead of having a sorting preprocessing step, we tried to get better cache prefetching. Our first idea actually worked and the second actually didn't. We'll describe both these experiment in details and show our reasonning through the discussion. Let's now start with the introduction.</p>
+<h2 id="introduction">Introduction</h2>
+<p>All the experience bellow were realized with professionals and should not be reproduced at home.
+The CPU model for all benchmark is an i7-7700hq with turbo boost disabled. The compiler was</p>
+<p><code>gcc -O3 -mavx2 -ffast-math -mfma -march=skylake</code></p>
+<h1 id="part-1">Part 1</h1>
+<p>Base version but with the temp array externalized.</p>
+<p>Hypothesis: the allocation and the free of the temp array could result
+in an overhead.</p>
+<p>Result: No difference could be significantly observed from the naive.
+This means that this is not the bottleneck. We also observe the curve
+does looks like scaling in n^2. Moreover, we compared our implementation
+with random_shuffle from the stdandard library and we saw a huge difference.
+(story p. 1) We therefore think its the complexity that's the cause of the difference.</p>
+<p>Next: investigate the other parts
+- modulo (30 c per call?) =&gt; constant overhead
+- rand (~70 c per call) =&gt; constant overhead.
+- shifting =&gt; n^2 complexity!</p>
+<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_1.png" alt="alt text"></p>
+<h1 id="part-2">Part 2</h1>
+<p>Fisher Yates (Wikipedia)</p>
+<pre><code><code><div>for i from n−1 downto 1 do
+     j ← random integer such that 0 ≤ j ≤ i
+     exchange a[j] and a[i]
+
+</div></code></code></pre>
+<p>Base version but removing the shifting (and no temp array)</p>
+<p>Hypothesis: shifting imply a complexity of n^2. We made a big observation.
+We can actually start from the end of the array and go to the start. This
+algorithm is called the fisher yates shuffle and is O(n).</p>
+<p>Results: The complexity of n^2 was indeed the source of the problem. Our implementatio
+with the compilation flags as defined beat the std random shuffle. We can observe on the graphs
+(Story 2).</p>
+<p>Next investigation: We have two performance main suspects with our current version:
+The random number generation and the modulo. We'll investigate of a possible better way of
+generating the random numbers. We'll focus on the rand function.
+@param args</p>
+<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_2.png" alt="alt text"></p>
+<h1 id="part-3">Part 3</h1>
+<p>Hypothesis: (story 3) rand seemed to be slow and so we decided to investigate
+by getting a chunk of random numbers from the dev/urandom device of our computer.
+We read the &quot;file&quot; and copy all the randoms equal to the size of the problem.</p>
+<p>Results:
+We found that using a file stream to get the random numbers and then getting them
+in an array was faster than using the rand routine.</p>
+<p>Next: We can try to use another random generator function.</p>
+<p>Hypothesis: Here we tried to use a custom function that can be inlined (<a href="https://stackoverflow.com/questions/26237419/faster-than-rand">https://stackoverflow.com/questions/26237419/faster-than-rand</a>).
+We checked with godbolt and with our compiler and flags, the rand method is not inlined
+but our custom version is inlined.</p>
+<pre><code><code><div>inline unsigned int fast_rand(permutation_args_t* args) {
+    args-&gt;seed = (214013*args-&gt;seed + 2531011);
+    return (args-&gt;seed&gt;&gt;16) &amp; 0x7FFF;
+}
+</div></code></code></pre>
+<p>Results: The inlined function is faster from all the other ones.</p>
+<p>Next to investigate:
+Actually, this experiment raises the question: how much cycles per element do
+the rand and urandom take. Indeed, the urandom version is certainly not the fastest
+we can get. Moreover, we found that with godbolt, rand was not inlined and so,
+a procedure call has to be made everytime. To know better what's happening,
+we'll try to measure the time it takes to purely generate random numbers. We'll also
+try to find what entropy each method is providing. We therefore open a
+parenthesis to experiments 2 and 3 (go and read them and go back here).
+After these, we will time purely the permutation for each method =&gt; experiment 4.</p>
+<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_3.png" alt="alt text"></p>
+<h1 id="part-4">Part 4</h1>
+<h2 id="experiment-2">Experiment 2</h2>
+<p>Bellow are the tools for benchmarking the entropy of each
+random number generation</p>
+<p>Results: We could see that none of the methods match the ground truth, however,
+rand and urandom have the same entropy and the entropy of the custom lcg is lower
+than rand and urandom. This experiment was more of a check to see what was happening.</p>
+<p>Questioning: It will be interesting to see how the randomness influence WP2.
+Next to investigate: None for now, see exp 3.</p>
+<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_4_1.png" alt="alt text"></p>
+<h2 id="experiment-3">Experiment 3</h2>
+<p>Bellow are the tools for benchmarking the times it takes to purely
+generate random numbers. The bellow tools acutally uses the permutation_args_t
+struct.</p>
+<p>Question: How does each random method affects time? Maybe the cache is playing a role in
+a permutation context. How does each method behaves when desociated from the cache.</p>
+<p>Result: We saw that weirdly, the urandom version was way slower than the other version at
+around 12500 cycles, all the other versions were around 100 cycles with rand being the slowest.
+The fast_rand inlined method seemed to even reached the dummy store example. This reaises a big
+concern as it might well be that the cache is the bottleneck with scattered reads/writes.</p>
+<p>Next to investigate: We could try to pregenerate some random permutation and permute the index
+array with it. =&gt; go back to story 3.</p>
+<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_4_2.png" alt="alt text"></p>
+<h1 id="part-5">Part 5</h1>
+<h2 id="experiment-4">Experiment 4</h2>
+<p>Here we want to see how much time it takes to only permute the numbers with pregnerated random
+numbers. We suspect that the overhead is comming from the permutation itself due to cache issues and
+not from the actual random number generation.</p>
+<p>Hypothesis: We think that the random generation will be of low overhead.</p>
+<p>Result: We see that it is the case. Generating random numbers is very cheap as compared to
+the permutation. We also see that urandom is actually the slowest method by far. Certainly because there is a syscall and we open a file (read it, close it, etc...).</p>
+<p>Next question: What is the distribution of theses numbers. Since generating is not the bottleneck,
+the permutation is. And so, all this is about is access patterns. We wan't to see how the numbers
+are actually represented.</p>
+<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_5.png" alt="alt text"></p>
+<p>We came with a very simple die trial experiment. We have a die with 100000 sides (hopefully not faked) and we throw it 100 times with each method. We hope to see a distorted and grouped distribution for the fastest method.</p>
+<p>Hyp: Stack overflow method is the most grouped method
+Results: We can observe on the plot bellow that indeed the die was piped with the manual method
+and so the numbers were concentrated within a small area of 32000 elements. This makes a lot
+of sens if we paste back the implementation of the function:</p>
+<pre><code><code><div>inline unsigned int fast_rand(permutation_args_t* args) {
+    args-&gt;seed = (214013*args-&gt;seed + 2531011);
+    return (args-&gt;seed&gt;&gt;16) &amp; 0x7FFF;
+}
+</div></code></code></pre>
+<p>Note the &quot;&amp;&quot; at the last line. 0x7FFF is equal to 32767 in base 10. Moreover, note that the benchmark was run on a i7-7700hq with caches as follow (obtain with <code>lscpu | grep &quot;cache&quot;</code>):</p>
+<pre><code><code><div>L1d cache:                       128 KiB
+L1i cache:                       128 KiB
+L2 cache:                        1 MiB
+L3 cache:                        6 MiB
+</div></code></code></pre>
+<p>We are manipulating 32 bits ints so 32000 ints can be stored in the L1. This endorse the cause of the speedup to be the cache.
+(Note: since 8 ints are loaded in every accesses, depending on how sparse the accesses are, conflicts misses can occurs! We need to investigate that).</p>
+<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_6.png" alt="alt text"></p>
+<p>All these experiments implies a certain amount of questions.</p>
+<ul>
+<li>What is the runtime portion of the permutations in the MC algorithm?</li>
+<li>What is the effect on randomness on the MC algorithm?</li>
+</ul>
+<p>We need to answer these questions in order to choose the right approach.</p>
+<h1 id="part-6">Part 6</h1>
+<p>In the last part we saw that the distrubution of the random numbers could affect the performances. In this part we achieved benchmarking the shapely algorithm by plotting a variation of N, T and K. We could show the runtime in cycles as well as the total error sum. The results can be observed bellow.</p>
+<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_9_1.png" alt="alt text"></p>
+<p>The error is computed as the sum of the total relative difference. Meaning that values very close to zero imply a good accuracy. In order to compute the error we compared the result of the MC algorithm with the WP1 version. The latter was compared against the given python baseline. Moreover, the default values for each parameter (when not varying) are <code>default_N=500, default_T=300, default_K=10</code>. In order to question ourselves in a more acurrate way we want to have the max heap as for know it looks like K is blowing everything. We want to add here for the record that the permutation function used is <code>generate_random_permutations_v2</code>.</p>
+<p>We also need to keep in mind the following:</p>
+<ul>
+<li>The head is built in a getho way with stl</li>
+<li>The code is not in an optimal construction =&gt; branching + uninlined calls</li>
+</ul>
+<p>In the next part we'll try to see the effect of the permutations on the runtime.</p>
+<p>Indeed, we think that some overhead can come from generating the random numbers inside the inner loop. Firstly because it may be extra work, secondly because the function rand used is not inlined.
+We will therefore try to do the following:</p>
+<ul>
+<li>
+<p>1 - generate once the random numbers and permute inplace the indices (initialized as 1...n) as well as the random numbers (we will also shuffle our initially generated random numbers). This for every T (v2).</p>
+</li>
+<li>
+<p>2 - We will do as in 1 but we do not shuffle the randoms at all (v3).</p>
+</li>
+<li>
+<p>3 - We do as in 1 but we shuffle the randoms only once per test element (v4).</p>
+</li>
+</ul>
+<p>Hypothesis:</p>
+<p>This is a bit weird but we suppose there can be a tradeoff between accuracy and performances (algo need random but random can imply more work).</p>
+<p>Here are the results, note that v5 is using Antoine's max heap against all other v's using the stl one.</p>
+<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_9_2.png" alt="alt text"></p>
+<ul>
+<li>1 - Very interesting! We can see that v2 is indeed faster than v1 and so this would imply that generating the randoms each time is a loss of time and can be approximated by shuffling the existing generated numbers as we can see that the error rate stays almost the same.</li>
+<li>2 - Again very intersting as v3 and v4 are the fastest. Definitly, generating less random numbers does something to the runtime <strong>and</strong> in this case to the error. You can see that v3 has a much worse error rate than v4. The latter still shuffles the random numbers once for every test set. However, we can see that v4 performances are not different from v3 which shows a potential optimal option to manipulate these random numbers.</li>
+</ul>
+<p>The next thing to try is to compare v4 (our best in terms of tradeoff) when implmented with Antoine's heap.</p>
+<p>Let's see the results bellow. The v6 one is Antoine's max heap + v4.</p>
+<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_9_3.png" alt="alt text"></p>
+<ul>
+<li>faster and still reseaonably accurate =&gt; better</li>
+</ul>
+<p>Next question, can my thing with the graph makes it even better?</p>
+<h1 id="part-7">Part 7</h1>
+<p>In part 6, we saw randomness affects performances, we think there are two factors, first the range of the numbers which obviously affect the spatial locality and then the conflicts. In fact, if the access are scattered among some range, we are more likely to evict some cache line du to conflict and this will pretty much destroy temporal locality on the cache lines. Therefore, last time we asks some questions about the MC algorithm, however, we had an idea.</p>
+<p>Intuitevely, this indea of locality seems, at least at first glance, related to the cache sparse access. Therefore, in order to get better performance, we need to make these accesses more organise. This is why the question is: How could we enhance locality and how could this affect randomness? To this question we modeled the problem as followed: Let's simulate Yates wihtout performing any swaps and consider the permuted indices over a 64 bytes aligned region. We can model our problem as a graph were nodes are the cache lines and the edges are the Yates swaps that we simulated and recorded. We then can sort lexicographically the edges. After that, we go through the sorted edges and swap the indices of the array by the two indices recorder (from some Yates swap).
+We think that both the temporal and spatial locality could be increased as the same cache line will be reused for each elements (as they now get the same node index). The spacial locality is not perfect but certainly it will be increased too. Indeed, we will most likely first swap with nearby cache lines. For this experiment, we did not measured the sorting step and we compared the runtimes with the other swapping methods. We can observe bellow the number of cycles needed to swap only using our method. Both plots are showing the same data but not for the same ranges. We can see that with small sizes, our algorithm perfoms almost 2 times better certainly because it reduces internal cache conflicts. However, we'd like to remin that we haven't count the prepocessing step which would cost a lot as it would be <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(nlogn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>. We might have an idea to counter that but for now, we'd like to see if there are any differences with the randomness.</p>
+<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_7_2.png" alt="alt text"></p>
+<p>As we can see on the plot bellow, we ran a dice experiment where on every round we generate random numbers. We then find the bucket where this particular number fell into. As we can see, we get fairly similar results as using rand. Therefore, we could argue that our method is at least not damaging too much the randomess. The experiment was realized by running 1000000 times the thing.</p>
+<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_7_1.png" alt="alt text"></p>
+<h1 id="part-8">Part 8</h1>
+<p>We tried to sort small 16 int arrays. We tried three technics:</p>
+<ul>
+<li>Insertion sort</li>
+<li>Network sorting using conditional moves</li>
+<li>Network sorting using AVX</li>
+</ul>
+<p>We then computed the latency of each methods (6000000 runs):</p>
+<ul>
+<li>Insertion sort: 648.19 cycles</li>
+<li>Network sort conditional move: 68.16 cycles</li>
+<li>Network sort AVX: 91.11 cycles</li>
+</ul>
+<p>The conditional moves network sort is the Green's one as shown bellow (Marianczuk 19 <a href="https://arxiv.org/pdf/1908.08111.pdf">https://arxiv.org/pdf/1908.08111.pdf</a>)</p>
+<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/sorting/green.gif" alt="alt text"></p>
+<p>The AVX network sort was implemented from this image (<a href="https://hal.inria.fr/hal-01512970v1/document">https://hal.inria.fr/hal-01512970v1/document</a>):</p>
+<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/sorting/bitsort.png" alt="alt text"></p>
+<h1 id="how-does-it-scale-upon-multiple-permutations">How does it scale upon multiple permutations?</h1>
+<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_10_1.png" alt="alt text"></p>
+<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_10_2.png" alt="alt text"></p>
+<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_10_3.png" alt="alt text"></p>
+<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_10_4.png" alt="alt text"></p>
+<h1 id="final-questions">final questions</h1>
+<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/sorting/network_love/network_64.png" alt="alt text"></p>
+<p>A 64 sorting network (<a href="https://bertdobbelaere.github.io/sorting_networks_extended.html#N64L521D21">https://bertdobbelaere.github.io/sorting_networks_extended.html#N64L521D21</a>)</p>
+<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_12_1.png" alt="alt text"></p>
+<h1 id="can-we-do-better-">CAN WE DO BETTER ???????</h1>
+<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_12_2.png" alt="alt text">
+<img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/save/story_12_6.png" alt="alt text"></p>
+<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/sorting/network_love/crying.jpg" alt="alt text"></p>
+<h1 id="larger-size-">LARGER SIZE ???????</h1>
+<pre><code><code><div>void nine_tails_yates(uint32_t* values, uint32_t size) {
+    
+    uint32_t chunk_size = size &gt;&gt; 3;
+    uint32_t offsets[8];
+    for (uint32_t i = 0; i &lt; 8; i++) {
+        offsets[i] = i * chunk_size;
+    }
+
+    for (uint32_t i = chunk_size - 1; i &gt;= 1; i--) {
+        uint32_t the_chosen_one = (GET_RAND % (i + 1)) &lt;&lt; 3; //Anakin
+        std::swap(values[offsets[GET_RAND % 8]++], values[the_chosen_one + 0]);
+        std::swap(values[offsets[GET_RAND % 8]++], values[the_chosen_one + 1]);
+        std::swap(values[offsets[GET_RAND % 8]++], values[the_chosen_one + 2]);
+        std::swap(values[offsets[GET_RAND % 8]++], values[the_chosen_one + 3]);
+        std::swap(values[offsets[GET_RAND % 8]++], values[the_chosen_one + 4]);
+        std::swap(values[offsets[GET_RAND % 8]++], values[the_chosen_one + 5]);
+        std::swap(values[offsets[GET_RAND % 8]++], values[the_chosen_one + 6]);
+        std::swap(values[offsets[GET_RAND % 8]++], values[the_chosen_one + 7]);
+    }
+
+}
+</div></code></code></pre>
+<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/sorting/network_love/nine_tail_incorrect.png" alt="alt text"></p>
+<p><img src="file:////home/quentin/Desktop/team28/WP2/c-base/permutations/story_pictures/sorting/network_love/oupsssssssy.png" alt="alt text"></p>
+<p>TODO see Daniel Lemire</p>
+
+        <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </body>
+    </html>

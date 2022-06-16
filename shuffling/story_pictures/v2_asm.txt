@@ -1,0 +1,32 @@
+generate_random_permutations_v2(permutation_args_t*):
+        push    r12
+        push    rbp
+        push    rbx
+        mov     ebx, DWORD PTR [rdi+16]
+        lea     r12d, [rbx-1]
+        test    r12d, r12d
+        jle     .L5
+        movsx   r12, r12d
+        mov     rbp, rdi
+        sal     r12, 2
+.L3:
+        call    rand
+        cdq
+        idiv    ebx
+        mov     rsi, QWORD PTR [rbp+8]
+        lea     rcx, [rsi+r12]
+        mov     edi, DWORD PTR [rcx]
+        dec     ebx
+        sub     r12, 4
+        movsx   rdx, edx
+        lea     rax, [rsi+rdx*4]
+        mov     edx, DWORD PTR [rax]
+        mov     DWORD PTR [rcx], edx
+        mov     DWORD PTR [rax], edi
+        cmp     ebx, 1
+        jne     .L3
+.L5:
+        pop     rbx
+        pop     rbp
+        pop     r12
+        ret

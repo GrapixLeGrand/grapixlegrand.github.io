@@ -1,0 +1,32 @@
+
+# rand function is inlined
+
+
+generate_random_permutations_v4(permutation_args_t*):
+        mov     eax, DWORD PTR [rdi+16]
+        mov     r8, rdi
+        lea     ecx, [rax-1]
+        test    ecx, ecx
+        jle     .L5
+        mov     rsi, QWORD PTR [rdi+8]
+        movsx   rcx, ecx
+.L3:
+        imul    eax, DWORD PTR [r8+80], 214013
+        lea     edi, [rcx+1]
+        xor     edx, edx
+        add     eax, 2531011
+        mov     DWORD PTR [r8+80], eax
+        shr     eax, 16
+        and     eax, 32767
+        div     edi
+        mov     r9d, DWORD PTR [rsi+rcx*4]
+        mov     edx, edx
+        lea     rax, [rsi+rdx*4]
+        mov     edx, DWORD PTR [rax]
+        mov     DWORD PTR [rsi+rcx*4], edx
+        dec     rcx
+        mov     DWORD PTR [rax], r9d
+        test    ecx, ecx
+        jg      .L3
+.L5:
+        ret
