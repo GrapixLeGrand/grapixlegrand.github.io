@@ -1,0 +1,2380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IPyVolume Widget</title>
+    
+</head>
+<body>
+
+
+<link href="../../js/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">    
+<script src="../../js/require.min.v2.3.4.js"  data-main="../../js/" ></script>
+<script>
+    require.config({
+      map: {
+        '*': {
+          'ipyvolume': 'ipyvolume_v0.5.2',
+        }
+      }})
+</script>
+
+<script src="../../js/embed-amd_v0.18.0.js"></script>
+<script type="application/vnd.jupyter.widget-state+json">
+{
+  "version_major": 2,
+  "version_minor": 0,
+  "state": {
+    "18eeb145b23d4202a86c7f5210d17da8": {
+      "model_name": "VBoxModel",
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "1.5.0",
+      "state": {
+        "_dom_classes": [],
+        "_model_module": "@jupyter-widgets/controls",
+        "_model_module_version": "1.5.0",
+        "_model_name": "VBoxModel",
+        "_view_count": null,
+        "_view_module": "@jupyter-widgets/controls",
+        "_view_module_version": "1.5.0",
+        "_view_name": "VBoxView",
+        "box_style": "",
+        "children": [
+          "IPY_MODEL_49af1bc693404fad90a2f0e7f2ecbff1",
+          "IPY_MODEL_85e3aaf2a097492e8e932b5cc4d7cce8",
+          "IPY_MODEL_98d44d91966742fcadcd36635e04536f"
+        ],
+        "layout": "IPY_MODEL_6fd23a50d40b4806b25e7c6342bbed5b"
+      }
+    },
+    "49af1bc693404fad90a2f0e7f2ecbff1": {
+      "model_name": "FigureModel",
+      "model_module": "ipyvolume",
+      "model_module_version": "~0.5.2",
+      "state": {
+        "_dom_classes": [],
+        "_model_module": "ipyvolume",
+        "_model_module_version": "~0.5.2",
+        "_model_name": "FigureModel",
+        "_view_count": null,
+        "_view_module": "ipyvolume",
+        "_view_module_version": "~0.5.2",
+        "_view_name": "FigureView",
+        "ambient_coefficient": 0.5,
+        "animation": 1000.0,
+        "animation_exponent": 1.0,
+        "camera": "IPY_MODEL_7e0850bb06354277b13059ce7951c5b1",
+        "camera_center": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "camera_control": "trackball",
+        "camera_fov": 45.0,
+        "capture_fps": null,
+        "cube_resolution": 512,
+        "diffuse_coefficient": 0.8,
+        "displayscale": 1.0,
+        "downscale": 1,
+        "eye_separation": 6.4,
+        "height": 500,
+        "layout": "IPY_MODEL_8a332bcf54c04c378b0035d523ace340",
+        "matrix_projection": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "matrix_world": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "meshes": [
+          "IPY_MODEL_3c554cadcb274e1a82598ae18bb775d8"
+        ],
+        "mouse_mode": "normal",
+        "panorama_mode": "no",
+        "render_continuous": false,
+        "scatters": [],
+        "scene": "IPY_MODEL_cb92a0568d1f4dd9b29c71969603f3a5",
+        "selection_mode": "replace",
+        "selector": "lasso",
+        "show": "Volume",
+        "specular_coefficient": 0.5,
+        "specular_exponent": 5.0,
+        "stereo": false,
+        "style": {
+          "axes": {
+            "visible": true,
+            "label": {
+              "color": "black"
+            },
+            "ticklabel": {
+              "color": "black"
+            },
+            "color": "black"
+          },
+          "box": {
+            "visible": true
+          },
+          "background-color": "white"
+        },
+        "volumes": [],
+        "width": 400,
+        "xlabel": "x",
+        "xlim": [
+          0.0,
+          1.0
+        ],
+        "ylabel": "y",
+        "ylim": [
+          0.0,
+          1.0
+        ],
+        "zlabel": "z",
+        "zlim": [
+          0.0,
+          1.0
+        ]
+      }
+    },
+    "7e0850bb06354277b13059ce7951c5b1": {
+      "model_name": "PerspectiveCameraModel",
+      "model_module": "jupyter-threejs",
+      "model_module_version": "^2.1.0",
+      "state": {
+        "_model_module": "jupyter-threejs",
+        "_model_module_version": "^2.1.0",
+        "_model_name": "PerspectiveCameraModel",
+        "_view_count": null,
+        "_view_module": null,
+        "_view_module_version": "",
+        "_view_name": null,
+        "aspect": 1.0,
+        "castShadow": false,
+        "children": [],
+        "far": 2000.0,
+        "focus": 10.0,
+        "fov": 46.0,
+        "frustumCulled": true,
+        "matrix": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "matrixAutoUpdate": true,
+        "matrixWorld": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "matrixWorldInverse": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "matrixWorldNeedsUpdate": false,
+        "modelViewMatrix": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "name": "",
+        "near": 0.1,
+        "normalMatrix": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "position": [
+          0.0,
+          0.0,
+          2.0
+        ],
+        "projectionMatrix": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "quaternion": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "receiveShadow": false,
+        "renderOrder": 0,
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          "XYZ"
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "type": "PerspectiveCamera",
+        "up": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "visible": true,
+        "zoom": 1.0
+      }
+    },
+    "8a332bcf54c04c378b0035d523ace340": {
+      "model_name": "LayoutModel",
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "state": {
+        "_model_module": "@jupyter-widgets/base",
+        "_model_module_version": "1.2.0",
+        "_model_name": "LayoutModel",
+        "_view_count": null,
+        "_view_module": "@jupyter-widgets/base",
+        "_view_module_version": "1.2.0",
+        "_view_name": "LayoutView",
+        "align_content": null,
+        "align_items": null,
+        "align_self": null,
+        "border": null,
+        "bottom": null,
+        "display": null,
+        "flex": null,
+        "flex_flow": null,
+        "grid_area": null,
+        "grid_auto_columns": null,
+        "grid_auto_flow": null,
+        "grid_auto_rows": null,
+        "grid_column": null,
+        "grid_gap": null,
+        "grid_row": null,
+        "grid_template_areas": null,
+        "grid_template_columns": null,
+        "grid_template_rows": null,
+        "height": null,
+        "justify_content": null,
+        "justify_items": null,
+        "left": null,
+        "margin": null,
+        "max_height": null,
+        "max_width": null,
+        "min_height": null,
+        "min_width": null,
+        "object_fit": null,
+        "object_position": null,
+        "order": null,
+        "overflow": null,
+        "overflow_x": null,
+        "overflow_y": null,
+        "padding": null,
+        "right": null,
+        "top": null,
+        "visibility": null,
+        "width": null
+      }
+    },
+    "3c554cadcb274e1a82598ae18bb775d8": {
+      "model_name": "MeshModel",
+      "model_module": "ipyvolume",
+      "model_module_version": "~0.5.2",
+      "state": {
+        "_model_module": "ipyvolume",
+        "_model_module_version": "~0.5.2",
+        "_model_name": "MeshModel",
+        "_view_count": null,
+        "_view_module": "ipyvolume",
+        "_view_module_version": "~0.5.2",
+        "_view_name": "MeshView",
+        "color": "orange",
+        "line_material": "IPY_MODEL_1d565a3a6a3f408fb96b93518d4bee3b",
+        "lines": null,
+        "material": "IPY_MODEL_1c9a1b9785da4e58bdc7cddfab46ca03",
+        "sequence_index": 0,
+        "texture": null,
+        "triangles": [
+          {
+            "dtype": "uint32",
+            "shape": [
+              1068,
+              3
+            ]
+          }
+        ],
+        "u": null,
+        "v": null,
+        "visible": true,
+        "x": [
+          {
+            "dtype": "float32",
+            "shape": [
+              112
+            ]
+          }
+        ],
+        "y": [
+          {
+            "dtype": "float32",
+            "shape": [
+              112
+            ]
+          }
+        ],
+        "z": [
+          {
+            "dtype": "float32",
+            "shape": [
+              112
+            ]
+          }
+        ]
+      },
+      "buffers": [
+        {
+          "encoding": "base64",
+          "path": [
+            "triangles",
+            0,
+            "data"
+          ],
+          "data": "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"
+        },
+        {
+          "encoding": "base64",
+          "path": [
+            "x",
+            0,
+            "data"
+          ],
+          "data": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwPwAAcD8AAHA/AABwPwAAcD8AAHA/AABwPwAAcD8AAHA/AABwPwAAcD8AAHA/AABwPwAAcD8AAHA/AABwPwIAgD0CAIA9AgCAPQIAgD0CAIA9AgCAPQIAgD0CAIA9AgCAPQIAgD0CAIA9AgCAPQIAgD0CAIA9AgCAPQIAgD0AAIA/AACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AACAPwAAgD8CAAA9AAB4PzMz0z4zM9M+Z2amPjQzcz40M3M+1QwaPjMzQz8zM0M/ZmYWP2ZmFj9mZhY/zcwsPzMzQz/LfFk/NDNzPjMz0z4zM9M+MzPTPmdmpj40M3M+NDNzPpqZGT4zM0M/MzNDP2ZmFj9mZhY/ZmYWP83MLD8zM0M/y3xZPzQzcz4zM9M+AgAAPQAAeD8CAAA9AAB4PzMz0z5nZqY+NDNzPtUMGj4zM0M/ZmYWP83MLD+ZmVk/MzPTPmdmpj40M3M+mpkZPjMzQz9mZhY/zcwsP8t8WT8CAAA9AAB4Pw=="
+        },
+        {
+          "encoding": "base64",
+          "path": [
+            "y",
+            0,
+            "data"
+          ],
+          "data": "AAAAAAEAAD4AACAyAQCAPgEAwD4CAEA+rarqPQAAoDIAAEA+AQDAPlZVhT4AAMA+AQAAPgEAgD4CAEA+AQDAPgAAoDIBAIA+AgCAPQEAAD4BAKA+AACAPgAAIDIAAAAAAAAAPgEAwD4AAMA+AABAPgIAQD4BAIA+AQAAPgEAwD4AAKAyAQCAPgIAgD0BAAA+AQCgPgAAgD4AACAyAAAAAAAAAD4BAMA+AADAPgAAQD4AACAyAQAAPgAAAAACAEA+AQDAPgEAgD6tquo9AACgMgAAQD4BAMA+VlWFPgAAwD4AACAyAAAgMgEAAD4BAAA+AQAAPgEAAD4BAAA+AQAAPgEAAD4BAAA+AQAAPgEAAD4BAAA+AQAAPgEAAD4BAAA+AQAAPgEAAD4BAIA+AQCAPgEAgD4BAIA+AACAPgEAgD4BAIA+AQCAPgEAgD4BAIA+AACAPgEAgD4AAIA+AQCAPgAAgD4AAIA+AQDAPgEAwD4CAEA+AgBAPs7MTD7OzCw+aGZmPiB3Nj6bmRk+NDMzPjQzUz7jiEk+zsxMPs7MLD5nZmY+H3c2PpuZGT40MzM+NDNTPuOIST4AAEA+AABAPg=="
+        },
+        {
+          "encoding": "base64",
+          "path": [
+            "z",
+            0,
+            "data"
+          ],
+          "data": "AQDAPgEAgD4BAEA+AQAAPuPNjDLjzQwyrKrqPQAAAAABAMA+AQBAPlZVhT4BAMA+AQAAPgIAgD3jzQwy482MMgAAAAABAAA+AAAAPgAAgD4BAAA+AACAPgEAQD4BAMA+AACgPgEAQD4BAMA+AQDAPuPNDDICAIA9AQAAPuPNjDIAAAAAAQAAPgAAAD4AAIA+AQAAPgAAgD4BAEA+AQDAPgAAoD4BAEA+AQDAPgEAwD4BAEA+AQCAPgEAwD7jzQwy482MMgEAAD6squo9AAAAAAEAwD4BAEA+VlWFPgEAwD4BAEA+AQBAPgEAAD7NzEw+zcwsPmdmZj4BAAA+H3c2PpqZGT4BAAA+NDMzPgEAAD4AAIA+NDNTPgAAgD7iiEk+AACAPgAAgD7NzEw+AQAAPs3MLD4BAAA+Z2ZmPh93Nj4BAAA+mpkZPjQzMz4BAAA+AACAPjQzUz4AAIA+4ohJPgAAgD4AAIA+AQBAPgEAQD7jzQwy480MMgEAAD4BAAA+AQAAPgEAAD4BAAA+AQAAPgEAAD4BAAA+AACAPgAAgD4AAIA+AACAPgAAgD4AAIA+AACAPgAAgD4BAMA+AQDAPg=="
+        }
+      ]
+    },
+    "1d565a3a6a3f408fb96b93518d4bee3b": {
+      "model_name": "ShaderMaterialModel",
+      "model_module": "jupyter-threejs",
+      "model_module_version": "^2.1.0",
+      "state": {
+        "_model_module": "jupyter-threejs",
+        "_model_module_version": "^2.1.0",
+        "_model_name": "ShaderMaterialModel",
+        "_view_count": null,
+        "_view_module": null,
+        "_view_module_version": "",
+        "_view_name": null,
+        "alphaTest": 0.0,
+        "blendDst": "OneMinusSrcAlphaFactor",
+        "blendDstAlpha": 0.0,
+        "blendEquation": "AddEquation",
+        "blendEquationAlpha": 0.0,
+        "blendSrc": "SrcAlphaFactor",
+        "blendSrcAlpha": 0.0,
+        "blending": "NormalBlending",
+        "clipIntersection": false,
+        "clipShadows": false,
+        "clipping": false,
+        "clippingPlanes": [],
+        "colorWrite": true,
+        "defines": null,
+        "depthFunc": "LessEqualDepth",
+        "depthTest": true,
+        "depthWrite": true,
+        "dithering": false,
+        "extensions": {},
+        "flatShading": false,
+        "fog": false,
+        "fragmentShader": "",
+        "lights": false,
+        "linewidth": 1.0,
+        "morphNormals": false,
+        "morphTargets": false,
+        "name": "",
+        "opacity": 1.0,
+        "overdraw": 0.0,
+        "polygonOffset": false,
+        "polygonOffsetFactor": 0.0,
+        "polygonOffsetUnits": 0.0,
+        "precision": null,
+        "premultipliedAlpha": false,
+        "shadowSide": null,
+        "side": "FrontSide",
+        "skinning": false,
+        "transparent": false,
+        "type": "ShaderMaterial",
+        "uniforms": {},
+        "uniformsNeedUpdate": false,
+        "vertexColors": "NoColors",
+        "vertexShader": "",
+        "visible": true,
+        "wireframe": false,
+        "wireframeLinewidth": 1.0
+      }
+    },
+    "1c9a1b9785da4e58bdc7cddfab46ca03": {
+      "model_name": "ShaderMaterialModel",
+      "model_module": "jupyter-threejs",
+      "model_module_version": "^2.1.0",
+      "state": {
+        "_model_module": "jupyter-threejs",
+        "_model_module_version": "^2.1.0",
+        "_model_name": "ShaderMaterialModel",
+        "_view_count": null,
+        "_view_module": null,
+        "_view_module_version": "",
+        "_view_name": null,
+        "alphaTest": 0.0,
+        "blendDst": "OneMinusSrcAlphaFactor",
+        "blendDstAlpha": 0.0,
+        "blendEquation": "AddEquation",
+        "blendEquationAlpha": 0.0,
+        "blendSrc": "SrcAlphaFactor",
+        "blendSrcAlpha": 0.0,
+        "blending": "NormalBlending",
+        "clipIntersection": false,
+        "clipShadows": false,
+        "clipping": false,
+        "clippingPlanes": [],
+        "colorWrite": true,
+        "defines": null,
+        "depthFunc": "LessEqualDepth",
+        "depthTest": true,
+        "depthWrite": true,
+        "dithering": false,
+        "extensions": {},
+        "flatShading": false,
+        "fog": false,
+        "fragmentShader": "",
+        "lights": false,
+        "linewidth": 1.0,
+        "morphNormals": false,
+        "morphTargets": false,
+        "name": "",
+        "opacity": 1.0,
+        "overdraw": 0.0,
+        "polygonOffset": false,
+        "polygonOffsetFactor": 0.0,
+        "polygonOffsetUnits": 0.0,
+        "precision": null,
+        "premultipliedAlpha": false,
+        "shadowSide": null,
+        "side": "DoubleSide",
+        "skinning": false,
+        "transparent": false,
+        "type": "ShaderMaterial",
+        "uniforms": {},
+        "uniformsNeedUpdate": false,
+        "vertexColors": "NoColors",
+        "vertexShader": "",
+        "visible": true,
+        "wireframe": false,
+        "wireframeLinewidth": 1.0
+      }
+    },
+    "cb92a0568d1f4dd9b29c71969603f3a5": {
+      "model_name": "SceneModel",
+      "model_module": "jupyter-threejs",
+      "model_module_version": "^2.1.0",
+      "state": {
+        "_model_module": "jupyter-threejs",
+        "_model_module_version": "^2.1.0",
+        "_model_name": "SceneModel",
+        "_view_count": null,
+        "_view_module": null,
+        "_view_module_version": "",
+        "_view_name": null,
+        "autoUpdate": true,
+        "background": null,
+        "castShadow": false,
+        "children": [],
+        "fog": null,
+        "frustumCulled": true,
+        "matrix": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "matrixAutoUpdate": true,
+        "matrixWorld": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "matrixWorldNeedsUpdate": false,
+        "modelViewMatrix": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "name": "",
+        "normalMatrix": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "overrideMaterial": null,
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "quaternion": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "receiveShadow": false,
+        "renderOrder": 0,
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          "XYZ"
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "type": "Scene",
+        "up": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "visible": true
+      }
+    },
+    "85e3aaf2a097492e8e932b5cc4d7cce8": {
+      "model_name": "FigureModel",
+      "model_module": "ipyvolume",
+      "model_module_version": "~0.5.2",
+      "state": {
+        "_dom_classes": [],
+        "_model_module": "ipyvolume",
+        "_model_module_version": "~0.5.2",
+        "_model_name": "FigureModel",
+        "_view_count": null,
+        "_view_module": "ipyvolume",
+        "_view_module_version": "~0.5.2",
+        "_view_name": "FigureView",
+        "ambient_coefficient": 0.5,
+        "animation": 1000.0,
+        "animation_exponent": 1.0,
+        "camera": "IPY_MODEL_f0130173930747d892abb414dcb461ba",
+        "camera_center": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "camera_control": "trackball",
+        "camera_fov": 45.0,
+        "capture_fps": null,
+        "cube_resolution": 512,
+        "diffuse_coefficient": 0.8,
+        "displayscale": 1.0,
+        "downscale": 1,
+        "eye_separation": 6.4,
+        "height": 500,
+        "layout": "IPY_MODEL_e74bd454189c4dc7b1bddb56d9ecfecb",
+        "matrix_projection": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "matrix_world": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "meshes": [
+          "IPY_MODEL_43479e6cb50a4d3d819fed2877ce5d2f"
+        ],
+        "mouse_mode": "normal",
+        "panorama_mode": "no",
+        "render_continuous": false,
+        "scatters": [
+          "IPY_MODEL_c8d0447a0dfa474d9f9513618d2f94f5"
+        ],
+        "scene": "IPY_MODEL_751a78087927413f80877c27e4a86b9e",
+        "selection_mode": "replace",
+        "selector": "lasso",
+        "show": "Volume",
+        "specular_coefficient": 0.5,
+        "specular_exponent": 5.0,
+        "stereo": false,
+        "style": {
+          "axes": {
+            "visible": true,
+            "label": {
+              "color": "black"
+            },
+            "ticklabel": {
+              "color": "black"
+            },
+            "color": "black"
+          },
+          "box": {
+            "visible": true
+          },
+          "background-color": "white"
+        },
+        "volumes": [],
+        "width": 400,
+        "xlabel": "x",
+        "xlim": [
+          0.0,
+          1.0
+        ],
+        "ylabel": "y",
+        "ylim": [
+          0.0,
+          1.0
+        ],
+        "zlabel": "z",
+        "zlim": [
+          0.0,
+          1.0
+        ]
+      }
+    },
+    "f0130173930747d892abb414dcb461ba": {
+      "model_name": "PerspectiveCameraModel",
+      "model_module": "jupyter-threejs",
+      "model_module_version": "^2.1.0",
+      "state": {
+        "_model_module": "jupyter-threejs",
+        "_model_module_version": "^2.1.0",
+        "_model_name": "PerspectiveCameraModel",
+        "_view_count": null,
+        "_view_module": null,
+        "_view_module_version": "",
+        "_view_name": null,
+        "aspect": 1.0,
+        "castShadow": false,
+        "children": [],
+        "far": 2000.0,
+        "focus": 10.0,
+        "fov": 46.0,
+        "frustumCulled": true,
+        "matrix": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "matrixAutoUpdate": true,
+        "matrixWorld": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "matrixWorldInverse": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "matrixWorldNeedsUpdate": false,
+        "modelViewMatrix": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "name": "",
+        "near": 0.1,
+        "normalMatrix": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "position": [
+          0.0,
+          0.0,
+          4.0
+        ],
+        "projectionMatrix": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "quaternion": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "receiveShadow": false,
+        "renderOrder": 0,
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          "XYZ"
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "type": "PerspectiveCamera",
+        "up": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "visible": true,
+        "zoom": 1.0
+      }
+    },
+    "e74bd454189c4dc7b1bddb56d9ecfecb": {
+      "model_name": "LayoutModel",
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "state": {
+        "_model_module": "@jupyter-widgets/base",
+        "_model_module_version": "1.2.0",
+        "_model_name": "LayoutModel",
+        "_view_count": null,
+        "_view_module": "@jupyter-widgets/base",
+        "_view_module_version": "1.2.0",
+        "_view_name": "LayoutView",
+        "align_content": null,
+        "align_items": null,
+        "align_self": null,
+        "border": null,
+        "bottom": null,
+        "display": null,
+        "flex": null,
+        "flex_flow": null,
+        "grid_area": null,
+        "grid_auto_columns": null,
+        "grid_auto_flow": null,
+        "grid_auto_rows": null,
+        "grid_column": null,
+        "grid_gap": null,
+        "grid_row": null,
+        "grid_template_areas": null,
+        "grid_template_columns": null,
+        "grid_template_rows": null,
+        "height": null,
+        "justify_content": null,
+        "justify_items": null,
+        "left": null,
+        "margin": null,
+        "max_height": null,
+        "max_width": null,
+        "min_height": null,
+        "min_width": null,
+        "object_fit": null,
+        "object_position": null,
+        "order": null,
+        "overflow": null,
+        "overflow_x": null,
+        "overflow_y": null,
+        "padding": null,
+        "right": null,
+        "top": null,
+        "visibility": null,
+        "width": null
+      }
+    },
+    "43479e6cb50a4d3d819fed2877ce5d2f": {
+      "model_name": "MeshModel",
+      "model_module": "ipyvolume",
+      "model_module_version": "~0.5.2",
+      "state": {
+        "_model_module": "ipyvolume",
+        "_model_module_version": "~0.5.2",
+        "_model_name": "MeshModel",
+        "_view_count": null,
+        "_view_module": "ipyvolume",
+        "_view_module_version": "~0.5.2",
+        "_view_name": "MeshView",
+        "color": [
+          {
+            "dtype": "float32",
+            "shape": [
+              112,
+              4
+            ]
+          }
+        ],
+        "line_material": "IPY_MODEL_14ca99a6e6d94038a4a1e778015f1ca7",
+        "lines": null,
+        "material": "IPY_MODEL_bc6ead9c64ba4408897149bb07d346ed",
+        "sequence_index": 0,
+        "texture": null,
+        "triangles": [
+          {
+            "dtype": "uint32",
+            "shape": [
+              1068,
+              3
+            ]
+          }
+        ],
+        "u": null,
+        "v": null,
+        "visible": true,
+        "x": [
+          {
+            "dtype": "float32",
+            "shape": [
+              112
+            ]
+          }
+        ],
+        "y": [
+          {
+            "dtype": "float32",
+            "shape": [
+              112
+            ]
+          }
+        ],
+        "z": [
+          {
+            "dtype": "float32",
+            "shape": [
+              112
+            ]
+          }
+        ]
+      },
+      "buffers": [
+        {
+          "encoding": "base64",
+          "path": [
+            "color",
+            0,
+            "data"
+          ],
+          "data": "AAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAACAPwAAgD8AAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAACAPwAAgD8AAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAACAPwAAgD8AAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAACAPwAAgD8AAAAAAAAAAAAAgD8AAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAAAAAACAPwAAgD8AAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAACAPwAAgD8AAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAACAPwAAgD8AAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAACAPwAAgD8AAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAACAPwAAgD8AAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAACAPwAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAAAAAAAAgD8AAIA/AAAAAAAAgD8AAAAAAACAPwAAAD8AAAA/AAAAPwAAgD8AAAA/AAAAPwAAAD8AAIA/AAAAPwAAAD8AAAA/AACAPwAAAD8AAAA/AAAAPwAAgD8AAAA/AAAAPwAAAD8AAIA/AAAAPwAAAD8AAAA/AACAPwAAAD8AAAA/AAAAPwAAgD8AAAA/AAAAPwAAAD8AAIA/AAAAPwAAAD8AAAA/AACAPwAAAD8AAAA/AAAAPwAAgD8AAAA/AAAAPwAAAD8AAIA/AAAAPwAAAD8AAAA/AACAPwAAAD8AAAA/AAAAPwAAgD8AAAA/AAAAPwAAAD8AAIA/AAAAPwAAAD8AAAA/AACAPwAAAD8AAAA/AAAAPwAAgD8AAAA/AAAAPwAAAD8AAIA/AAAAPwAAAD8AAAA/AACAPwAAAD8AAAA/AAAAPwAAgD8AAAA/AAAAPwAAAD8AAIA/AAAAPwAAAD8AAAA/AACAPwAAAD8AAAA/AAAAPwAAgD8AAAA/AAAAPwAAAD8AAIA/AAAAPwAAAD8AAAA/AACAPwAAAD8AAAA/AAAAPwAAgD8AAAA/AAAAPwAAAD8AAIA/AAAAPwAAAD8AAAA/AACAPwAAAD8AAAA/AAAAPwAAgD8AAAA/AAAAPwAAAD8AAIA/AAAAPwAAAD8AAAA/AACAPwAAAD8AAAA/AAAAPwAAgD8AAAA/AAAAPwAAAD8AAIA/AAAAAAAAAAAAAIA/AACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAAAAAAAAgD8AAIA/AAAAAAAAgD8AAAAAAACAPwAAAD8AAAA/AAAAPwAAgD8AAAA/AAAAPwAAAD8AAIA/AAAAPwAAAD8AAAA/AACAPwAAAD8AAAA/AAAAPwAAgD8AAAA/AAAAPwAAAD8AAIA/AAAAPwAAAD8AAAA/AACAPwAAAD8AAAA/AAAAPwAAgD8AAAA/AAAAPwAAAD8AAIA/AAAAPwAAAD8AAAA/AACAPwAAAD8AAAA/AAAAPwAAgD8AAAA/AAAAPwAAAD8AAIA/AAAAPwAAAD8AAAA/AACAPwAAAD8AAAA/AAAAPwAAgD8AAAA/AAAAPwAAAD8AAIA/AAAAPwAAAD8AAAA/AACAPwAAAD8AAAA/AAAAPwAAgD8AAAAAAAAAAAAAgD8AAIA/AAAAAAAAgD8AAAAAAACAPw=="
+        },
+        {
+          "encoding": "base64",
+          "path": [
+            "triangles",
+            0,
+            "data"
+          ],
+          "data": "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"
+        },
+        {
+          "encoding": "base64",
+          "path": [
+            "x",
+            0,
+            "data"
+          ],
+          "data": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAX91vP2QVcD/h9m8/3UxwP4mdbz9IF3A/PL9vPwLibz9JNHA/3BtwP2ekbz8rrW8/tORvP7FRcD/cWHA/hgRwPwIAgD0CAIA9AgCAPQIAgD0CAIA9AgCAPQIAgD0CAIA9AgCAPQIAgD0CAIA9AgCAPQIAgD0CAIA9AgCAPQIAgD1dpH8/HeJ/P2mtfz/M9n8/kCaAP+QLgD/n138/Np1/PzwCgD/OKIA/aBCAP0gsgD8CAAA9VqR3Pzz50j7LCdM+VwKmPqQwcz6tFHM+rgAaPo0NQz9GEEM/xEcWP6RGFj9WTRY/drAsP/MYQz+mXlk/XQtzPqUK0z5WUNM+q1jTPj6ipj6yYnM+AkRzPnamGT4hRkM/HU1DP499Fj+peBY/xn8WP4/jLD8dUEM/FpZZP9NHcz5UUtM+AgAAPZpReD8CAAA9yfZ3Pw0t0z6NXaY+aDpzPuMMGj6qHkM/ol0WPwzNLD9emFk/bDnTPshPpj7jQHM+aJYZPvMdQz9vXhY/OdUsP8eAWT8CAAA9cQR4Pw=="
+        },
+        {
+          "encoding": "base64",
+          "path": [
+            "y",
+            0,
+            "data"
+          ],
+          "data": "AAAAAAEAAD4AACAyAQCAPgEAwD4CAEA+rarqPQAAoDIAAEA+AQDAPlZVhT4AAMA+ADHgPe/tZD6r1hk+2easPnqvGL3VE3A+pBlAPa4kBj6WAZg+5w+DPresnLtHQeM8mEcRPruMvT4eMc4+Ll9cPgIAQD4BAIA+AQAAPgEAwD4AAKAyAQCAPgIAgD0BAAA+AQCgPgAAgD4AACAyAAAAAAAAAD4BAMA+AADAPgAAQD4We6u7UbkFPiSJ3zwbYxk+Yq6sPoCUbz7bGsY925gavcDrWz6EVb0+siCJPvL6zT4AACAyqw+ku+Yf8T01pf89rof7PUfOAD5Xlvw9frD/PYt+7T3M+uU90w34Pe+p6z3jVAU+yiL/PbfHBT4wlPo9FWgBPgrABD5Hzn8+WoB4Pui3fT7FN34+p2SAPgnZfz7W/HI+V752Pm8IfD7v1nU+1qmCPgaRfz4Q5II+JEl9Pmi2gD4bWoI+AQDAPvJwvT4CAEA+Z50ZPpBQRT5oGSc+A5lkPselNT7alww+3ggpPsufRz4qFjs+oodRPrWMMD6202c+cjY3Pj5hHz4diTg+ZMhYPqV9Tz4AAEA+4SRcPg=="
+        },
+        {
+          "encoding": "base64",
+          "path": [
+            "z",
+            0,
+            "data"
+          ],
+          "data": "AQDAPgEAgD4BAEA+AQAAPuPNjDLjzQwyrKrqPQAAAAABAMA+AQBAPlZVhT4BAMA+u80KPgAOUz3z4Tu5X60FvYQkBD3no+k92O4VPrpphT7wYdM9xNN0PmkLYT6AhtA+H2+lPk2WHj4cTa8+Y+i/PuPNDDICAIA9AQAAPuPNjDIAAAAAAQAAPgAAAD4AAIA+AQAAPgAAgD4BAEA+AQDAPgAAoD4BAEA+AQDAPgEAwD6z/2A+0miFPhSA0D4jKVi5QcMFveJ66T2LAQI+HggEPRnjvz6ikB4+y499PpZGrz4BAEA+kwVhPqkiBj7a/FI+sfwxPlsaaD4wggE+aT83PrTrIj69UQk+evk6PgPFBz5E5IM+HsJbPl+phD6MmlM+zdaAPtocgz4N2UY+/v/zPVk6KD7C7vw9QLtkPs6tNT4cEO096iEQPkp7Kz7clPA9PUR4Ph6ZSj4eh3Y+ADQ/PrVefj5b+nk+AQBAPpaTHj7jzQwyJYhKudDU/T3JmgE+hB/+Pa8bAD5+jwU+j5MBPnrQ+j09s/w95vp+PhTGgD6oDH8+UA6APknIgj7yyYA+K2h9PpxYfj4BAMA+vOW/Pg=="
+        }
+      ]
+    },
+    "14ca99a6e6d94038a4a1e778015f1ca7": {
+      "model_name": "ShaderMaterialModel",
+      "model_module": "jupyter-threejs",
+      "model_module_version": "^2.1.0",
+      "state": {
+        "_model_module": "jupyter-threejs",
+        "_model_module_version": "^2.1.0",
+        "_model_name": "ShaderMaterialModel",
+        "_view_count": null,
+        "_view_module": null,
+        "_view_module_version": "",
+        "_view_name": null,
+        "alphaTest": 0.0,
+        "blendDst": "OneMinusSrcAlphaFactor",
+        "blendDstAlpha": 0.0,
+        "blendEquation": "AddEquation",
+        "blendEquationAlpha": 0.0,
+        "blendSrc": "SrcAlphaFactor",
+        "blendSrcAlpha": 0.0,
+        "blending": "NormalBlending",
+        "clipIntersection": false,
+        "clipShadows": false,
+        "clipping": false,
+        "clippingPlanes": [],
+        "colorWrite": true,
+        "defines": null,
+        "depthFunc": "LessEqualDepth",
+        "depthTest": true,
+        "depthWrite": true,
+        "dithering": false,
+        "extensions": {},
+        "flatShading": false,
+        "fog": false,
+        "fragmentShader": "",
+        "lights": false,
+        "linewidth": 1.0,
+        "morphNormals": false,
+        "morphTargets": false,
+        "name": "",
+        "opacity": 1.0,
+        "overdraw": 0.0,
+        "polygonOffset": false,
+        "polygonOffsetFactor": 0.0,
+        "polygonOffsetUnits": 0.0,
+        "precision": null,
+        "premultipliedAlpha": false,
+        "shadowSide": null,
+        "side": "FrontSide",
+        "skinning": false,
+        "transparent": false,
+        "type": "ShaderMaterial",
+        "uniforms": {},
+        "uniformsNeedUpdate": false,
+        "vertexColors": "NoColors",
+        "vertexShader": "",
+        "visible": true,
+        "wireframe": false,
+        "wireframeLinewidth": 1.0
+      }
+    },
+    "bc6ead9c64ba4408897149bb07d346ed": {
+      "model_name": "ShaderMaterialModel",
+      "model_module": "jupyter-threejs",
+      "model_module_version": "^2.1.0",
+      "state": {
+        "_model_module": "jupyter-threejs",
+        "_model_module_version": "^2.1.0",
+        "_model_name": "ShaderMaterialModel",
+        "_view_count": null,
+        "_view_module": null,
+        "_view_module_version": "",
+        "_view_name": null,
+        "alphaTest": 0.0,
+        "blendDst": "OneMinusSrcAlphaFactor",
+        "blendDstAlpha": 0.0,
+        "blendEquation": "AddEquation",
+        "blendEquationAlpha": 0.0,
+        "blendSrc": "SrcAlphaFactor",
+        "blendSrcAlpha": 0.0,
+        "blending": "NormalBlending",
+        "clipIntersection": false,
+        "clipShadows": false,
+        "clipping": false,
+        "clippingPlanes": [],
+        "colorWrite": true,
+        "defines": null,
+        "depthFunc": "LessEqualDepth",
+        "depthTest": true,
+        "depthWrite": true,
+        "dithering": false,
+        "extensions": {},
+        "flatShading": false,
+        "fog": false,
+        "fragmentShader": "",
+        "lights": false,
+        "linewidth": 1.0,
+        "morphNormals": false,
+        "morphTargets": false,
+        "name": "",
+        "opacity": 1.0,
+        "overdraw": 0.0,
+        "polygonOffset": false,
+        "polygonOffsetFactor": 0.0,
+        "polygonOffsetUnits": 0.0,
+        "precision": null,
+        "premultipliedAlpha": false,
+        "shadowSide": null,
+        "side": "DoubleSide",
+        "skinning": false,
+        "transparent": false,
+        "type": "ShaderMaterial",
+        "uniforms": {},
+        "uniformsNeedUpdate": false,
+        "vertexColors": "NoColors",
+        "vertexShader": "",
+        "visible": true,
+        "wireframe": false,
+        "wireframeLinewidth": 1.0
+      }
+    },
+    "c8d0447a0dfa474d9f9513618d2f94f5": {
+      "model_name": "ScatterModel",
+      "model_module": "ipyvolume",
+      "model_module_version": "~0.5.2",
+      "state": {
+        "_model_module": "ipyvolume",
+        "_model_module_version": "~0.5.2",
+        "_model_name": "ScatterModel",
+        "_view_count": null,
+        "_view_module": "ipyvolume",
+        "_view_module_version": "~0.5.2",
+        "_view_name": "ScatterView",
+        "color": [
+          {
+            "dtype": "float32",
+            "shape": [
+              4
+            ]
+          }
+        ],
+        "color_selected": "white",
+        "connected": false,
+        "geo": "arrow",
+        "line_material": "IPY_MODEL_e36e3bf6dc9643a4843461c30238a507",
+        "material": "IPY_MODEL_271f9d39da0e4b66bf52e2249e2fe97b",
+        "selected": null,
+        "sequence_index": 0,
+        "size": 20,
+        "size_selected": 26.0,
+        "texture": null,
+        "visible": true,
+        "vx": [
+          {
+            "dtype": "float32",
+            "shape": [
+              74
+            ]
+          }
+        ],
+        "vy": [
+          {
+            "dtype": "float32",
+            "shape": [
+              74
+            ]
+          }
+        ],
+        "vz": [
+          {
+            "dtype": "float32",
+            "shape": [
+              74
+            ]
+          }
+        ],
+        "x": [
+          {
+            "dtype": "float32",
+            "shape": [
+              74
+            ]
+          }
+        ],
+        "y": [
+          {
+            "dtype": "float32",
+            "shape": [
+              74
+            ]
+          }
+        ],
+        "z": [
+          {
+            "dtype": "float32",
+            "shape": [
+              74
+            ]
+          }
+        ]
+      },
+      "buffers": [
+        {
+          "encoding": "base64",
+          "path": [
+            "color",
+            0,
+            "data"
+          ],
+          "data": "AAAAAAAAgD8AAAAAAACAPw=="
+        },
+        {
+          "encoding": "base64",
+          "path": [
+            "vx",
+            0,
+            "data"
+          ],
+          "data": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+        },
+        {
+          "encoding": "base64",
+          "path": [
+            "vy",
+            0,
+            "data"
+          ],
+          "data": "CtcjvArXI7wK1yO8CtcjvArXIzwK1yM8CtcjPArXI7wK1yM8CtcjvArXIzwK1yO8CtcjvArXI7wK1yO8CtcjPArXIzwK1yM8CtcjvArXI7wK1yO8CtcjPArXI7wK1yO8CtcjPArXI7wK1yM8CtcjvArXIzwK1yO8CtcjPArXIzwK1yM8CtcjPArXIzwK1yM8CtcjPArXI7wK1yM8CtcjPArXIzwK1yM8CtcjvArXIzwK1yO8CtcjPArXIzwK1yO8CtcjvArXIzwK1yO8CtcjvArXI7wK1yO8CtcjvArXI7wK1yO8CtcjvArXI7wK1yO8CtcjvArXI7wK1yO8CtcjvArXI7wK1yO8CtcjPArXIzwK1yO8CtcjvArXIzwK1yO8CtcjPArXIzw="
+        },
+        {
+          "encoding": "base64",
+          "path": [
+            "vz",
+            0,
+            "data"
+          ],
+          "data": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+        },
+        {
+          "encoding": "base64",
+          "path": [
+            "x",
+            0,
+            "data"
+          ],
+          "data": "Ufd9P8j8dz9UJHQ/iil2P6QNfD9sH3I/Pkd2P58vej/OOXQ/HElyP4/Vdz+DxHM/0jt6P8oxeD8oSXo/qzV6P3QJdj/syXU/BhR6P4M5eD+o1Xc/tuZxP/hHdj/NH3Q/fiZ2Pzhqaj/u0HU/Z8d7P98AeD+zOnw/LyJ4P+7zeT/B5nk/LN57P/Q2fj8F+3k/YgJyP5z4dz8s8XM/qjB0P5Igfj/1An4/JNpxPxk+dj8OLHQ/Vu9zP/VIej9hqXE/lKd1PyZHfj/L63s/Rhx8Pxv4cT9m0nU/Ewp0Py7Ycz+wBno/g7p5P/sTcj/nXGo/XfB1P/f+eT91CHQ/XMJ5P3i0dz+s2H0/UshzPw62fT9JqXk/LrZ7P3fFeT9/unE/+7VxPzu4dT8="
+        },
+        {
+          "encoding": "base64",
+          "path": [
+            "y",
+            0,
+            "data"
+          ],
+          "data": "nGghPojhOj5/zIM+ujaGPsFrYz7DYIs+35O0Pl6XlT6d+6U+h/mvPl6L3D14AF09k6SiPp31kD6c3a8+zdekPmtzYT71YZs9zVJcPkRYmj7UcsQ99IwZPvHBqz5quYI+Ch2SPpNYSD7j4tI9p7iJPYfYSz7vc54+HP+GPmPEMz5XUhk+c7cDPlrsnj7LWUE+3fpTPhfqKT5Z0Sg+um+YPv3IjD7VAlQ+WrC+Pf0Hpz4mL40+k4UgPm2vuD5AYi24prAHvId4tD7wHBI+k9BxPqAeIj67S6M9KXhVPnT+1T284EE+ZEMrPe2LXD7J3C0+UWwUPlFLND6xK00+v9gvPYODjDzcs7c9yuKnPR8uFz3qEY65jiPOPFNXkT00JSw99IYYPX5dOT0="
+        },
+        {
+          "encoding": "base64",
+          "path": [
+            "z",
+            0,
+            "data"
+          ],
+          "data": "T1Z2PSXMPz6N53w9obRku6l8XD5HYao++lRmPnKkHj4F5Xs+wrfCPXAwoD6f4+E9qOQGPpJJzTwwssI9VVCnPqmhlz5hJmM+G1CXO0GSGz3wYys+73C9PmZoRT0IBRI+KBmaPkSzHD7clsE+bvBAPm4CiT4dx609fjQ0PjKoqj4Cbr0+yM6uPl3cKz5lYZo+yOmnPhso2z3jqoo+tao+PtR1qz5j/qA+QnUrPakaKT6C6pg9plFlPlkpiz49Qh4+yn/cPUxQZj6XFyM+FtoHPaEvPz3i0pY9OUwaPmuYTT5EGCk9cbFYPm20lzulM0I+ErCgPe2nlT1QkNQ9EdpDPcb9rD3mmiI92/eyPuK6jT6JPR4+h3wGPlv1kj7StFg+Lr6NPsa8pT4="
+        }
+      ]
+    },
+    "e36e3bf6dc9643a4843461c30238a507": {
+      "model_name": "ShaderMaterialModel",
+      "model_module": "jupyter-threejs",
+      "model_module_version": "^2.1.0",
+      "state": {
+        "_model_module": "jupyter-threejs",
+        "_model_module_version": "^2.1.0",
+        "_model_name": "ShaderMaterialModel",
+        "_view_count": null,
+        "_view_module": null,
+        "_view_module_version": "",
+        "_view_name": null,
+        "alphaTest": 0.0,
+        "blendDst": "OneMinusSrcAlphaFactor",
+        "blendDstAlpha": 0.0,
+        "blendEquation": "AddEquation",
+        "blendEquationAlpha": 0.0,
+        "blendSrc": "SrcAlphaFactor",
+        "blendSrcAlpha": 0.0,
+        "blending": "NormalBlending",
+        "clipIntersection": false,
+        "clipShadows": false,
+        "clipping": false,
+        "clippingPlanes": [],
+        "colorWrite": true,
+        "defines": null,
+        "depthFunc": "LessEqualDepth",
+        "depthTest": true,
+        "depthWrite": true,
+        "dithering": false,
+        "extensions": {},
+        "flatShading": false,
+        "fog": false,
+        "fragmentShader": "",
+        "lights": false,
+        "linewidth": 1.0,
+        "morphNormals": false,
+        "morphTargets": false,
+        "name": "",
+        "opacity": 1.0,
+        "overdraw": 0.0,
+        "polygonOffset": false,
+        "polygonOffsetFactor": 0.0,
+        "polygonOffsetUnits": 0.0,
+        "precision": null,
+        "premultipliedAlpha": false,
+        "shadowSide": null,
+        "side": "FrontSide",
+        "skinning": false,
+        "transparent": false,
+        "type": "ShaderMaterial",
+        "uniforms": {},
+        "uniformsNeedUpdate": false,
+        "vertexColors": "NoColors",
+        "vertexShader": "",
+        "visible": true,
+        "wireframe": false,
+        "wireframeLinewidth": 1.0
+      }
+    },
+    "271f9d39da0e4b66bf52e2249e2fe97b": {
+      "model_name": "ShaderMaterialModel",
+      "model_module": "jupyter-threejs",
+      "model_module_version": "^2.1.0",
+      "state": {
+        "_model_module": "jupyter-threejs",
+        "_model_module_version": "^2.1.0",
+        "_model_name": "ShaderMaterialModel",
+        "_view_count": null,
+        "_view_module": null,
+        "_view_module_version": "",
+        "_view_name": null,
+        "alphaTest": 0.0,
+        "blendDst": "OneMinusSrcAlphaFactor",
+        "blendDstAlpha": 0.0,
+        "blendEquation": "AddEquation",
+        "blendEquationAlpha": 0.0,
+        "blendSrc": "SrcAlphaFactor",
+        "blendSrcAlpha": 0.0,
+        "blending": "NormalBlending",
+        "clipIntersection": false,
+        "clipShadows": false,
+        "clipping": false,
+        "clippingPlanes": [],
+        "colorWrite": true,
+        "defines": null,
+        "depthFunc": "LessEqualDepth",
+        "depthTest": true,
+        "depthWrite": true,
+        "dithering": false,
+        "extensions": {},
+        "flatShading": false,
+        "fog": false,
+        "fragmentShader": "",
+        "lights": false,
+        "linewidth": 1.0,
+        "morphNormals": false,
+        "morphTargets": false,
+        "name": "",
+        "opacity": 1.0,
+        "overdraw": 0.0,
+        "polygonOffset": false,
+        "polygonOffsetFactor": 0.0,
+        "polygonOffsetUnits": 0.0,
+        "precision": null,
+        "premultipliedAlpha": false,
+        "shadowSide": null,
+        "side": "FrontSide",
+        "skinning": false,
+        "transparent": false,
+        "type": "ShaderMaterial",
+        "uniforms": {},
+        "uniformsNeedUpdate": false,
+        "vertexColors": "NoColors",
+        "vertexShader": "",
+        "visible": true,
+        "wireframe": false,
+        "wireframeLinewidth": 1.0
+      }
+    },
+    "751a78087927413f80877c27e4a86b9e": {
+      "model_name": "SceneModel",
+      "model_module": "jupyter-threejs",
+      "model_module_version": "^2.1.0",
+      "state": {
+        "_model_module": "jupyter-threejs",
+        "_model_module_version": "^2.1.0",
+        "_model_name": "SceneModel",
+        "_view_count": null,
+        "_view_module": null,
+        "_view_module_version": "",
+        "_view_name": null,
+        "autoUpdate": true,
+        "background": null,
+        "castShadow": false,
+        "children": [],
+        "fog": null,
+        "frustumCulled": true,
+        "matrix": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "matrixAutoUpdate": true,
+        "matrixWorld": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "matrixWorldNeedsUpdate": false,
+        "modelViewMatrix": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "name": "",
+        "normalMatrix": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "overrideMaterial": null,
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "quaternion": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "receiveShadow": false,
+        "renderOrder": 0,
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          "XYZ"
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "type": "Scene",
+        "up": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "visible": true
+      }
+    },
+    "98d44d91966742fcadcd36635e04536f": {
+      "model_name": "FigureModel",
+      "model_module": "ipyvolume",
+      "model_module_version": "~0.5.2",
+      "state": {
+        "_dom_classes": [],
+        "_model_module": "ipyvolume",
+        "_model_module_version": "~0.5.2",
+        "_model_name": "FigureModel",
+        "_view_count": null,
+        "_view_module": "ipyvolume",
+        "_view_module_version": "~0.5.2",
+        "_view_name": "FigureView",
+        "ambient_coefficient": 0.5,
+        "animation": 1000.0,
+        "animation_exponent": 1.0,
+        "camera": "IPY_MODEL_8652938d434b47918fcf81a62a25bff0",
+        "camera_center": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "camera_control": "trackball",
+        "camera_fov": 45.0,
+        "capture_fps": null,
+        "cube_resolution": 512,
+        "diffuse_coefficient": 0.8,
+        "displayscale": 1.0,
+        "downscale": 1,
+        "eye_separation": 6.4,
+        "height": 500,
+        "layout": "IPY_MODEL_53af7dbfaab940128be638967a939b6b",
+        "matrix_projection": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "matrix_world": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "meshes": [
+          "IPY_MODEL_15ea872dc1c64eef8598ab9c8d52b6d1"
+        ],
+        "mouse_mode": "normal",
+        "panorama_mode": "no",
+        "render_continuous": false,
+        "scatters": [],
+        "scene": "IPY_MODEL_3380b2a129784eeca82a822c4613964e",
+        "selection_mode": "replace",
+        "selector": "lasso",
+        "show": "Volume",
+        "specular_coefficient": 0.5,
+        "specular_exponent": 5.0,
+        "stereo": false,
+        "style": {
+          "axes": {
+            "visible": true,
+            "label": {
+              "color": "black"
+            },
+            "ticklabel": {
+              "color": "black"
+            },
+            "color": "black"
+          },
+          "box": {
+            "visible": true
+          },
+          "background-color": "white"
+        },
+        "volumes": [],
+        "width": 400,
+        "xlabel": "x",
+        "xlim": [
+          0.0,
+          1.0
+        ],
+        "ylabel": "y",
+        "ylim": [
+          0.0,
+          1.0
+        ],
+        "zlabel": "z",
+        "zlim": [
+          0.0,
+          1.0
+        ]
+      }
+    },
+    "8652938d434b47918fcf81a62a25bff0": {
+      "model_name": "PerspectiveCameraModel",
+      "model_module": "jupyter-threejs",
+      "model_module_version": "^2.1.0",
+      "state": {
+        "_model_module": "jupyter-threejs",
+        "_model_module_version": "^2.1.0",
+        "_model_name": "PerspectiveCameraModel",
+        "_view_count": null,
+        "_view_module": null,
+        "_view_module_version": "",
+        "_view_name": null,
+        "aspect": 1.0,
+        "castShadow": false,
+        "children": [],
+        "far": 2000.0,
+        "focus": 10.0,
+        "fov": 46.0,
+        "frustumCulled": true,
+        "matrix": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "matrixAutoUpdate": true,
+        "matrixWorld": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "matrixWorldInverse": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "matrixWorldNeedsUpdate": false,
+        "modelViewMatrix": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "name": "",
+        "near": 0.1,
+        "normalMatrix": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "position": [
+          0.0,
+          0.0,
+          2.0
+        ],
+        "projectionMatrix": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "quaternion": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "receiveShadow": false,
+        "renderOrder": 0,
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          "XYZ"
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "type": "PerspectiveCamera",
+        "up": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "visible": true,
+        "zoom": 1.0
+      }
+    },
+    "53af7dbfaab940128be638967a939b6b": {
+      "model_name": "LayoutModel",
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "state": {
+        "_model_module": "@jupyter-widgets/base",
+        "_model_module_version": "1.2.0",
+        "_model_name": "LayoutModel",
+        "_view_count": null,
+        "_view_module": "@jupyter-widgets/base",
+        "_view_module_version": "1.2.0",
+        "_view_name": "LayoutView",
+        "align_content": null,
+        "align_items": null,
+        "align_self": null,
+        "border": null,
+        "bottom": null,
+        "display": null,
+        "flex": null,
+        "flex_flow": null,
+        "grid_area": null,
+        "grid_auto_columns": null,
+        "grid_auto_flow": null,
+        "grid_auto_rows": null,
+        "grid_column": null,
+        "grid_gap": null,
+        "grid_row": null,
+        "grid_template_areas": null,
+        "grid_template_columns": null,
+        "grid_template_rows": null,
+        "height": null,
+        "justify_content": null,
+        "justify_items": null,
+        "left": null,
+        "margin": null,
+        "max_height": null,
+        "max_width": null,
+        "min_height": null,
+        "min_width": null,
+        "object_fit": null,
+        "object_position": null,
+        "order": null,
+        "overflow": null,
+        "overflow_x": null,
+        "overflow_y": null,
+        "padding": null,
+        "right": null,
+        "top": null,
+        "visibility": null,
+        "width": null
+      }
+    },
+    "15ea872dc1c64eef8598ab9c8d52b6d1": {
+      "model_name": "MeshModel",
+      "model_module": "ipyvolume",
+      "model_module_version": "~0.5.2",
+      "state": {
+        "_model_module": "ipyvolume",
+        "_model_module_version": "~0.5.2",
+        "_model_name": "MeshModel",
+        "_view_count": null,
+        "_view_module": "ipyvolume",
+        "_view_module_version": "~0.5.2",
+        "_view_name": "MeshView",
+        "color": "orange",
+        "line_material": "IPY_MODEL_7ed8e9835b8442c68dc4e31caee22730",
+        "lines": null,
+        "material": "IPY_MODEL_62a73c8f018d46fc834dbe2c4b86e4e6",
+        "sequence_index": 0,
+        "texture": null,
+        "triangles": [
+          {
+            "dtype": "uint32",
+            "shape": [
+              1068,
+              3
+            ]
+          }
+        ],
+        "u": null,
+        "v": null,
+        "visible": true,
+        "x": [
+          {
+            "dtype": "float32",
+            "shape": [
+              112
+            ]
+          }
+        ],
+        "y": [
+          {
+            "dtype": "float32",
+            "shape": [
+              112
+            ]
+          }
+        ],
+        "z": [
+          {
+            "dtype": "float32",
+            "shape": [
+              112
+            ]
+          }
+        ]
+      },
+      "buffers": [
+        {
+          "encoding": "base64",
+          "path": [
+            "triangles",
+            0,
+            "data"
+          ],
+          "data": "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"
+        },
+        {
+          "encoding": "base64",
+          "path": [
+            "x",
+            0,
+            "data"
+          ],
+          "data": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAX91vP2QVcD/h9m8/3UxwP4mdbz9IF3A/PL9vPwLibz9JNHA/3BtwP2ekbz8rrW8/tORvP7FRcD/cWHA/hgRwPwIAgD0CAIA9AgCAPQIAgD0CAIA9AgCAPQIAgD0CAIA9AgCAPQIAgD0CAIA9AgCAPQIAgD0CAIA9AgCAPQIAgD1dpH8/HeJ/P2mtfz/M9n8/kCaAP+QLgD/n138/Np1/PzwCgD/OKIA/aBCAP0gsgD8CAAA9VqR3Pzz50j7LCdM+VwKmPqQwcz6tFHM+rgAaPo0NQz9GEEM/xEcWP6RGFj9WTRY/drAsP/MYQz+mXlk/XQtzPqUK0z5WUNM+q1jTPj6ipj6yYnM+AkRzPnamGT4hRkM/HU1DP499Fj+peBY/xn8WP4/jLD8dUEM/FpZZP9NHcz5UUtM+AgAAPZpReD8CAAA9yfZ3Pw0t0z6NXaY+aDpzPuMMGj6qHkM/ol0WPwzNLD9emFk/bDnTPshPpj7jQHM+aJYZPvMdQz9vXhY/OdUsP8eAWT8CAAA9cQR4Pw=="
+        },
+        {
+          "encoding": "base64",
+          "path": [
+            "y",
+            0,
+            "data"
+          ],
+          "data": "AAAAAAEAAD4AACAyAQCAPgEAwD4CAEA+rarqPQAAoDIAAEA+AQDAPlZVhT4AAMA+ADHgPe/tZD6r1hk+2easPnqvGL3VE3A+pBlAPa4kBj6WAZg+5w+DPresnLtHQeM8mEcRPruMvT4eMc4+Ll9cPgIAQD4BAIA+AQAAPgEAwD4AAKAyAQCAPgIAgD0BAAA+AQCgPgAAgD4AACAyAAAAAAAAAD4BAMA+AADAPgAAQD4We6u7UbkFPiSJ3zwbYxk+Yq6sPoCUbz7bGsY925gavcDrWz6EVb0+siCJPvL6zT4AACAyqw+ku+Yf8T01pf89rof7PUfOAD5Xlvw9frD/PYt+7T3M+uU90w34Pe+p6z3jVAU+yiL/PbfHBT4wlPo9FWgBPgrABD5Hzn8+WoB4Pui3fT7FN34+p2SAPgnZfz7W/HI+V752Pm8IfD7v1nU+1qmCPgaRfz4Q5II+JEl9Pmi2gD4bWoI+AQDAPvJwvT4CAEA+Z50ZPpBQRT5oGSc+A5lkPselNT7alww+3ggpPsufRz4qFjs+oodRPrWMMD6202c+cjY3Pj5hHz4diTg+ZMhYPqV9Tz4AAEA+4SRcPg=="
+        },
+        {
+          "encoding": "base64",
+          "path": [
+            "z",
+            0,
+            "data"
+          ],
+          "data": "AQDAPgEAgD4BAEA+AQAAPuPNjDLjzQwyrKrqPQAAAAABAMA+AQBAPlZVhT4BAMA+u80KPgAOUz3z4Tu5X60FvYQkBD3no+k92O4VPrpphT7wYdM9xNN0PmkLYT6AhtA+H2+lPk2WHj4cTa8+Y+i/PuPNDDICAIA9AQAAPuPNjDIAAAAAAQAAPgAAAD4AAIA+AQAAPgAAgD4BAEA+AQDAPgAAoD4BAEA+AQDAPgEAwD6z/2A+0miFPhSA0D4jKVi5QcMFveJ66T2LAQI+HggEPRnjvz6ikB4+y499PpZGrz4BAEA+kwVhPqkiBj7a/FI+sfwxPlsaaD4wggE+aT83PrTrIj69UQk+evk6PgPFBz5E5IM+HsJbPl+phD6MmlM+zdaAPtocgz4N2UY+/v/zPVk6KD7C7vw9QLtkPs6tNT4cEO096iEQPkp7Kz7clPA9PUR4Ph6ZSj4eh3Y+ADQ/PrVefj5b+nk+AQBAPpaTHj7jzQwyJYhKudDU/T3JmgE+hB/+Pa8bAD5+jwU+j5MBPnrQ+j09s/w95vp+PhTGgD6oDH8+UA6APknIgj7yyYA+K2h9PpxYfj4BAMA+vOW/Pg=="
+        }
+      ]
+    },
+    "7ed8e9835b8442c68dc4e31caee22730": {
+      "model_name": "ShaderMaterialModel",
+      "model_module": "jupyter-threejs",
+      "model_module_version": "^2.1.0",
+      "state": {
+        "_model_module": "jupyter-threejs",
+        "_model_module_version": "^2.1.0",
+        "_model_name": "ShaderMaterialModel",
+        "_view_count": null,
+        "_view_module": null,
+        "_view_module_version": "",
+        "_view_name": null,
+        "alphaTest": 0.0,
+        "blendDst": "OneMinusSrcAlphaFactor",
+        "blendDstAlpha": 0.0,
+        "blendEquation": "AddEquation",
+        "blendEquationAlpha": 0.0,
+        "blendSrc": "SrcAlphaFactor",
+        "blendSrcAlpha": 0.0,
+        "blending": "NormalBlending",
+        "clipIntersection": false,
+        "clipShadows": false,
+        "clipping": false,
+        "clippingPlanes": [],
+        "colorWrite": true,
+        "defines": null,
+        "depthFunc": "LessEqualDepth",
+        "depthTest": true,
+        "depthWrite": true,
+        "dithering": false,
+        "extensions": {},
+        "flatShading": false,
+        "fog": false,
+        "fragmentShader": "",
+        "lights": false,
+        "linewidth": 1.0,
+        "morphNormals": false,
+        "morphTargets": false,
+        "name": "",
+        "opacity": 1.0,
+        "overdraw": 0.0,
+        "polygonOffset": false,
+        "polygonOffsetFactor": 0.0,
+        "polygonOffsetUnits": 0.0,
+        "precision": null,
+        "premultipliedAlpha": false,
+        "shadowSide": null,
+        "side": "FrontSide",
+        "skinning": false,
+        "transparent": false,
+        "type": "ShaderMaterial",
+        "uniforms": {},
+        "uniformsNeedUpdate": false,
+        "vertexColors": "NoColors",
+        "vertexShader": "",
+        "visible": true,
+        "wireframe": false,
+        "wireframeLinewidth": 1.0
+      }
+    },
+    "62a73c8f018d46fc834dbe2c4b86e4e6": {
+      "model_name": "ShaderMaterialModel",
+      "model_module": "jupyter-threejs",
+      "model_module_version": "^2.1.0",
+      "state": {
+        "_model_module": "jupyter-threejs",
+        "_model_module_version": "^2.1.0",
+        "_model_name": "ShaderMaterialModel",
+        "_view_count": null,
+        "_view_module": null,
+        "_view_module_version": "",
+        "_view_name": null,
+        "alphaTest": 0.0,
+        "blendDst": "OneMinusSrcAlphaFactor",
+        "blendDstAlpha": 0.0,
+        "blendEquation": "AddEquation",
+        "blendEquationAlpha": 0.0,
+        "blendSrc": "SrcAlphaFactor",
+        "blendSrcAlpha": 0.0,
+        "blending": "NormalBlending",
+        "clipIntersection": false,
+        "clipShadows": false,
+        "clipping": false,
+        "clippingPlanes": [],
+        "colorWrite": true,
+        "defines": null,
+        "depthFunc": "LessEqualDepth",
+        "depthTest": true,
+        "depthWrite": true,
+        "dithering": false,
+        "extensions": {},
+        "flatShading": false,
+        "fog": false,
+        "fragmentShader": "",
+        "lights": false,
+        "linewidth": 1.0,
+        "morphNormals": false,
+        "morphTargets": false,
+        "name": "",
+        "opacity": 1.0,
+        "overdraw": 0.0,
+        "polygonOffset": false,
+        "polygonOffsetFactor": 0.0,
+        "polygonOffsetUnits": 0.0,
+        "precision": null,
+        "premultipliedAlpha": false,
+        "shadowSide": null,
+        "side": "DoubleSide",
+        "skinning": false,
+        "transparent": false,
+        "type": "ShaderMaterial",
+        "uniforms": {},
+        "uniformsNeedUpdate": false,
+        "vertexColors": "NoColors",
+        "vertexShader": "",
+        "visible": true,
+        "wireframe": false,
+        "wireframeLinewidth": 1.0
+      }
+    },
+    "3380b2a129784eeca82a822c4613964e": {
+      "model_name": "SceneModel",
+      "model_module": "jupyter-threejs",
+      "model_module_version": "^2.1.0",
+      "state": {
+        "_model_module": "jupyter-threejs",
+        "_model_module_version": "^2.1.0",
+        "_model_name": "SceneModel",
+        "_view_count": null,
+        "_view_module": null,
+        "_view_module_version": "",
+        "_view_name": null,
+        "autoUpdate": true,
+        "background": null,
+        "castShadow": false,
+        "children": [],
+        "fog": null,
+        "frustumCulled": true,
+        "matrix": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "matrixAutoUpdate": true,
+        "matrixWorld": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "matrixWorldNeedsUpdate": false,
+        "modelViewMatrix": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "name": "",
+        "normalMatrix": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "overrideMaterial": null,
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "quaternion": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "receiveShadow": false,
+        "renderOrder": 0,
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          "XYZ"
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "type": "Scene",
+        "up": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "visible": true
+      }
+    },
+    "6fd23a50d40b4806b25e7c6342bbed5b": {
+      "model_name": "LayoutModel",
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "state": {
+        "_model_module": "@jupyter-widgets/base",
+        "_model_module_version": "1.2.0",
+        "_model_name": "LayoutModel",
+        "_view_count": null,
+        "_view_module": "@jupyter-widgets/base",
+        "_view_module_version": "1.2.0",
+        "_view_name": "LayoutView",
+        "align_content": null,
+        "align_items": "stretch",
+        "align_self": null,
+        "border": "solid",
+        "bottom": null,
+        "display": "flex",
+        "flex": null,
+        "flex_flow": "row",
+        "grid_area": null,
+        "grid_auto_columns": null,
+        "grid_auto_flow": null,
+        "grid_auto_rows": null,
+        "grid_column": null,
+        "grid_gap": null,
+        "grid_row": null,
+        "grid_template_areas": null,
+        "grid_template_columns": null,
+        "grid_template_rows": null,
+        "height": null,
+        "justify_content": null,
+        "justify_items": null,
+        "left": null,
+        "margin": null,
+        "max_height": null,
+        "max_width": null,
+        "min_height": null,
+        "min_width": null,
+        "object_fit": null,
+        "object_position": null,
+        "order": null,
+        "overflow": null,
+        "overflow_x": null,
+        "overflow_y": null,
+        "padding": null,
+        "right": null,
+        "top": null,
+        "visibility": null,
+        "width": null
+      }
+    }
+  }
+}
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "18eeb145b23d4202a86c7f5210d17da8"}
+</script>
+
+        
+
+</body>
+</html>
