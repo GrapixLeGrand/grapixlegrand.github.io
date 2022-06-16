@@ -45,14 +45,22 @@
         
     </head>
     <body class="vscode-body vscode-light">
-        <h1 id="a-small-study-of-shuffling">A small study of shuffling</h1>
+        <div style="text-align: justify"> 
+<h1 id="a-small-study-of-shuffling">A small study of shuffling</h1>
 <h2 id="abstract">Abstract</h2>
 <p>This small writing is the result of our Advanced System Lab course project at ETH 2022. In this context, we were tasked to optimize algorithms present in <a href="https://arxiv.org/abs/1908.08619">arXiv:1908.08619 [cs.LG]</a>. This particular writing aims to optimize random permutations presents in Algorithm 2 of the paper.</p>
 <p>The discussion will start with an introduction without too much formalism. We'll then move on to the story of optimizing shuffling. We divided the journey in several steps. Each time we tried either to collect some clues on the problem, or to test some ideas. You'll see that through the discussion, we'll tried two of our own ideas. The first is consists of ordering shuffled access in preprocessing step and reuse the swaps in order to increase both spatial and temporal cache locality. Our second idea, named the <em>Ninetails</em>, was foolishely aiming to enhance locality. Instead of having a sorting preprocessing step, we tried to get better cache prefetching. Our first idea actually worked and the second actually didn't. We'll describe both these experiment in details and show our reasonning through the discussion. Let's now start with the introduction.</p>
 <h2 id="introduction">Introduction</h2>
+<p>Acording to Wikipedia, &quot;shuffling&quot; is:</p>
+<blockquote>
+<p>a procedure used to randomize a deck of playing cards to provide an element of chance in card games. Shuffling is often followed by a cut, to help ensure that the shuffler has not manipulated the outcome.</p>
+</blockquote>
+<p>In our case, we'll shuffle some list of integers. The algorithm 2 in <a href="https://arxiv.org/abs/1908.08619">arXiv:1908.08619 [cs.LG]</a> can be seen bellow:</p>
+<figure><p style="text-align:center;"><img src="story_pictures/save/algorithm_2.png" width="600"></p><figcaption style="text-align:center;">MDN Logo</figcaption></figure>
 <p>All the experience bellow were realized with professionals and should not be reproduced at home.
 The CPU model for all benchmark is an i7-7700hq with turbo boost disabled. The compiler was</p>
 <p><code>gcc -O3 -mavx2 -ffast-math -mfma -march=skylake</code></p>
+<p>All benchmarks were run on <code>PopOS 21.10</code>.</p>
 <h1 id="part-1">Part 1</h1>
 <p>Base version but with the temp array externalized.</p>
 <p>Hypothesis: the allocation and the free of the temp array could result
@@ -274,7 +282,7 @@ We think that both the temporal and spatial locality could be increased as the s
 <p><img src="story_pictures/sorting/network_love/nine_tail_incorrect.png" alt="alt text"></p>
 <p><img src="story_pictures/sorting/network_love/oupsssssssy.png" alt="alt text"></p>
 <p>TODO see Daniel Lemire</p>
-
+</div>
         <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
         
     </body>
