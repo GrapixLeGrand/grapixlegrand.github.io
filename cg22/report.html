@@ -86,7 +86,7 @@
 </head>
 <p><br/><br/>
 <br/><br/></p>
-<p style="text-align:center;"><img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/final_scene_full_denoised.jpeg" alt="Logo" width="80%" height="80%"><figcaption style="text-align:center;">Final rendered image</figcaption></p>
+<p style="text-align:center;"><img src="images/final_scene_full_denoised.jpeg" alt="Logo" width="80%" height="80%"><figcaption style="text-align:center;">Final rendered image</figcaption></p>
 <br/><br/>
 <br/><br/>
 <p>This is the report for the Computer Graphics 22 course at ETH. The goal of the project was to implement a full path tracer with some precisely chosen features. The features are listed bellow in the subject table. Each section consists of the description of the task as well as a showcase of the renderer concerning the current feature. Therefore, in each section we will explain how we implemented and designed the feature and we will also provide a side to side comparision with the <a href="https://mitsuba.readthedocs.io/en/stable/">Mitsuba renderer</a> for validation purpose. When all features were implememented, we made a final scene which aimed to demonstrate our work. We will begin this discussion by covering Texture mapping and we'll follow the order in the subject list bellow.</p>
@@ -137,8 +137,8 @@
 <p><br/><br/>
 <br/><br/></p>
 <div class="twentytwenty-container">
-        <img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/texture.jpeg" alt="mine" class="img-responsive">
-        <img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/texture_mitsuba.jpeg" alt="Mitsuba" class="img-responsive">
+        <img src="images/texture.jpeg" alt="mine" class="img-responsive">
+        <img src="images/texture_mitsuba.jpeg" alt="Mitsuba" class="img-responsive">
 </div> <figcaption style="text-align:center;">Side to side comparision of the texture scene between Nori and Mitsuba</figcaption><br>
 <p><br/><br/>
 <br/><br/></p>
@@ -167,8 +167,8 @@
 <li>focal length = 6 [scene units]</li>
 </ul>
 <div class="twentytwenty-container">
-        <img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/dof.jpeg" alt="mine" class="img-responsive">
-        <img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/dof_mitsuba.jpeg" alt="Mitsuba" class="img-responsive">
+        <img src="images/dof.jpeg" alt="mine" class="img-responsive">
+        <img src="images/dof_mitsuba.jpeg" alt="Mitsuba" class="img-responsive">
 </div> <figcaption style="text-align:center;">Side to side comparision of the depth of field scene between Nori and Mitsuba</figcaption><br>
 <p><br/><br/>
 <br/><br/></p>
@@ -183,8 +183,8 @@
 <p><br/><br/>
 <br/><br/></p>
 <div class="twentytwenty-container">
-        <img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/textured_emitter.jpeg" alt="mine" class="img-responsive">
-        <img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/textured_emitter_mitsuba.jpeg" alt="Mitsuba" class="img-responsive">
+        <img src="images/textured_emitter.jpeg" alt="mine" class="img-responsive">
+        <img src="images/textured_emitter_mitsuba.jpeg" alt="Mitsuba" class="img-responsive">
 </div> <figcaption style="text-align:center;">Side to side comparision of the textured emitter scene between Nori and Mitsuba</figcaption><br>
 <p><br/><br/>
 <br/><br/></p>
@@ -192,12 +192,12 @@
 <p>This part is about the mesh modelling process and it was really fun! As seen in our introduction we wanted to model butterflies. We found a <a href="https://www.youtube.com/watch?v=e4jqiZO_BqU">blender tutorial</a> on youtube by PIXXO 3D. We can observe bellow two images. The first one of the modelling process and the second one as the green morpho starting image.</p>
 <p><br/><br/>
 <br/><br/></p>
-<p style="text-align:center;"><img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/butterfly_process.png" alt="Logo" width="80%" height="80%"><figcaption style="text-align:center;">Blender screenshot showing the modelling process</figcaption></p>
+<p style="text-align:center;"><img src="images/butterfly_process.png" alt="Logo" width="80%" height="80%"><figcaption style="text-align:center;">Blender screenshot showing the modelling process</figcaption></p>
 <br/><br/>
 <br/><br/>
 <p><br/><br/>
 <br/><br/></p>
-<p style="text-align:center;"><img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/green_moprho.png" alt="Logo" width="70%" height="70%"><figcaption style="text-align:center;">The starting pattern for the green morpho</figcaption></p>
+<p style="text-align:center;"><img src="images/green_moprho.png" alt="Logo" width="70%" height="70%"><figcaption style="text-align:center;">The starting pattern for the green morpho</figcaption></p>
 <br/><br/>
 <br/><br/>
 <p>The idea is to use a real butterfly image to model the mesh. We start from a 2D view of the butterfly and place vertices around the wings and the body. We then extrude and move around the body parts a bit in order to get a better pose. We finally mapped the texture by projecting the image on our 3D model. We then exported our model as an obj and were able to import it in our renderer. You can observe an example of the model in our renderer in the next section where we'll show our use of the Intel denoiser.</p>
@@ -215,8 +215,8 @@
 <p><br/><br/>
 <br/><br/></p>
 <div class="twentytwenty-container">
-        <img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/butterfly.jpeg" alt="noisy" class="img-responsive">
-        <img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/butterfly_denoised.jpeg" alt="denoised" class="img-responsive">
+        <img src="images/butterfly.jpeg" alt="noisy" class="img-responsive">
+        <img src="images/butterfly_denoised.jpeg" alt="denoised" class="img-responsive">
 </div> <figcaption style="text-align:center;">Side to side comparision of the noisy and denoised image in Nori</figcaption><br>
 <br/><br/>
 <br/><br/>
@@ -234,8 +234,8 @@ filter.execute();
 <p><br/><br/>
 <br/><br/></p>
 <div class="twentytwenty-container">
-        <img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/butterfly_albedo.jpeg" alt="albedo" class="img-responsive">
-        <img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/butterfly_normal.jpeg" alt="normal" class="img-responsive">
+        <img src="images/butterfly_albedo.jpeg" alt="albedo" class="img-responsive">
+        <img src="images/butterfly_normal.jpeg" alt="normal" class="img-responsive">
 </div><figcaption style="text-align:center;">Side to side comparision of both the albedo and normals (in range [0,1]) buffers</figcaption><br>
 <br/><br/>
 <br/><br/>
@@ -255,8 +255,8 @@ filter.execute();
 <p><br/><br/>
 <br/><br/></p>
 <div class="twentytwenty-container">
-        <img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/normal.jpeg" alt="mine" class="img-responsive">
-        <img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/normal_mitsuba.jpeg" alt="Mitsuba" class="img-responsive">
+        <img src="images/normal.jpeg" alt="mine" class="img-responsive">
+        <img src="images/normal_mitsuba.jpeg" alt="Mitsuba" class="img-responsive">
 </div> <figcaption style="text-align:center;">Side to side comparision of the normal mapping scene between Nori and Mitsuba</figcaption><br>
 <br/><br/>
 <br/><br/>
@@ -273,15 +273,15 @@ filter.execute();
 <br/><br/></p>
 <table>
   <tr>
-    <td><img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/env/base.png"  alt="1" width = 512px height = 256px >
+    <td><img src="images/env/base.png"  alt="1" width = 512px height = 256px >
     <figcaption>Fig.1 - base image</figcaption></td>
-    <td><img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/env/luminaisance.png" alt="2" width = 512px height = 256px>
+    <td><img src="images/env/luminaisance.png" alt="2" width = 512px height = 256px>
     <figcaption>Fig.2 - luminance</figcaption></td></td>
    </tr> 
    <tr>
-      <td> <img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/env/checkSample1D.png"  alt="3" width = 512px height = 256px >
+      <td> <img src="images/env/checkSample1D.png"  alt="3" width = 512px height = 256px >
       <figcaption>Fig.3 - 100 samples 1D</figcaption></td></td>
-        <td><img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/env/checkSample2D.png" alt="4" width = 512px height = 256px>
+        <td><img src="images/env/checkSample2D.png" alt="4" width = 512px height = 256px>
         <figcaption>Fig.4 - 100 samples 2D</figcaption></td></td>
   </td>
   </tr>
@@ -294,15 +294,15 @@ filter.execute();
 <br/><br/></p>
 <table>
   <tr>
-    <td><img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/env/updf.png"  alt="1" width = 512px height = 256px >
+    <td><img src="images/env/updf.png"  alt="1" width = 512px height = 256px >
     <figcaption>Fig.5 - pdf U</figcaption></td>
-    <td><img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/env/ucdf.png" alt="2" width = 512px height = 256px>
+    <td><img src="images/env/ucdf.png" alt="2" width = 512px height = 256px>
     <figcaption>Fig.6 - cdf U</figcaption></td></td>
    </tr> 
    <tr>
-      <td> <img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/env/vpdf.png"  alt="3" width = 512px height = 256px >
+      <td> <img src="images/env/vpdf.png"  alt="3" width = 512px height = 256px >
       <figcaption>Fig.7 - pdf V</figcaption></td></td>
-        <td><img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/env/vcdf.png" alt="4" width = 512px height = 256px>
+        <td><img src="images/env/vcdf.png" alt="4" width = 512px height = 256px>
         <figcaption>Fig.8 - cdf V</figcaption></td></td>
   </td>
   </tr>
@@ -313,12 +313,12 @@ filter.execute();
 <p><br/><br/>
 <br/><br/></p>
 <div class="twentytwenty-container">
-        <img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/environment1.jpeg" alt="mine" class="img-responsive">
-        <img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/environment_mitsuba1.jpeg" alt="Mitsuba" class="img-responsive">
+        <img src="images/environment1.jpeg" alt="mine" class="img-responsive">
+        <img src="images/environment_mitsuba1.jpeg" alt="Mitsuba" class="img-responsive">
 </div> <figcaption style="text-align:center;">Side to side comparision of the first environment map scene using a garden texture between Nori and Mitsuba</figcaption><br>
 <div class="twentytwenty-container">
-        <img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/environment2.jpeg" alt="mine" class="img-responsive">
-        <img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/environment_mitsuba2.jpeg" alt="Mitsuba" class="img-responsive">
+        <img src="images/environment2.jpeg" alt="mine" class="img-responsive">
+        <img src="images/environment_mitsuba2.jpeg" alt="Mitsuba" class="img-responsive">
 </div> <figcaption style="text-align:center;">Side to side comparision of the first environment map scene using a moon scene texture between Nori and Mitsuba</figcaption><br>
 <br/><br/>
 <br/><br/>
@@ -376,13 +376,13 @@ else:
 <br/><br/></p>
 <table>
   <tr>
-    <td><img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/henyey-greenstein.jpeg"  alt="1" width="80%" height="80%" >
+    <td><img src="images/henyey-greenstein.jpeg"  alt="1" width="80%" height="80%" >
     <figcaption>Fig.1 Henyey-Greenstein phase function</figcaption></td>
-    <td><img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/spherical.jpeg" alt="2" width="80%" height="80%">
+    <td><img src="images/spherical.jpeg" alt="2" width="80%" height="80%">
     <figcaption>Fig.2 unit sphere</figcaption></td></td>
    </tr> 
    <tr>
-      <td> <img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/heyney-greenstein-warptest.jpeg"  alt="3" width="80%" height="80%" >
+      <td> <img src="images/heyney-greenstein-warptest.jpeg"  alt="3" width="80%" height="80%" >
       <figcaption>Fig.3 warp test of Henyey-Greenstein</figcaption></td></td>
   </td>
   </tr>
@@ -393,21 +393,21 @@ else:
 <p><br/><br/>
 <br/><br/></p>
 <div class="twentytwenty-container">
-        <img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/volumetricisotropic.jpeg" alt="isotropic mine" class="img-responsive">
-        <img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/volumetricisotropic_mitsuba.jpeg" alt="isotropic Mitsuba" class="img-responsive">
+        <img src="images/volumetricisotropic.jpeg" alt="isotropic mine" class="img-responsive">
+        <img src="images/volumetricisotropic_mitsuba.jpeg" alt="isotropic Mitsuba" class="img-responsive">
 </div> <figcaption style="text-align:center;">Side to side comparision of the homogenenous media scene using isotropic sampling</figcaption><br>
 <br/><br/>
 <br/><br/>
 <div class="twentytwenty-container">
-        <img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/volumetricgreenstein.jpeg" alt="Henyey-Greenstein mine" class="img-responsive">
-        <img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/volumetricgreenstein_mitsuba.jpeg" alt="Henyey-Greenstein Mitsuba" class="img-responsive">
+        <img src="images/volumetricgreenstein.jpeg" alt="Henyey-Greenstein mine" class="img-responsive">
+        <img src="images/volumetricgreenstein_mitsuba.jpeg" alt="Henyey-Greenstein Mitsuba" class="img-responsive">
 </div> <figcaption style="text-align:center;">Side to side comparision of the homogenenous media scene using Henyey-Greenstein sampling</figcaption><br>
 <h1 id="final-project"><strong>Final project</strong></h1>
 <p>In this final section, in a first step, I will explain why I created the image as it is and I'll desribed our thought process. In a second step, I'll show how I built the scene using our renderer as well as how I modelled the scene itself.</p>
 <p>I did not know much about raytracing before taking this course. I had a small introduction during my bachelor studies but it was kept simple. I discovered that raytracing is a beautiful tool. Similarly to a pencil it allows to make sureal plausible, to merge dreams and reality or to visualize imagination. I think raytracing is perfectly in-between painting and photography. As for painting, it allows to break the bond between reality and its physical being in which photography is stuck. Meaning that the multiset of its representations is no longer bounded by what's actually possible but only by what's thinkable. On the other hand, as for photography, raytracing produces an asymptotic results of some reality. This asymptot is different in both medias. Indeed, in photography, the reality is altered through the capturing process of a scene via a physical system. In opposition, raytracing sees its reality altered by the physical limitations of computers, non-determinism and approximations in numerical methods. Both are very similar and different at the same time and while photography allows for a perfect mapping with reality, raytracing is shining in its freedom of possibilities. As with painting, you can decide everything. You can bend reality while keeping its shape sharp. This is not possible when painting because of what one could call the &quot;pencil overhead&quot;. All of this to say that raytracing is a very nice technical subject but also a very nice backdoor to our mind. This idea of door is what I inspired myself of when deciding what would be depicted in the final image. This is why I decided to have pictures frames leading to diverse outside worlds. I think it well express the idea of &quot;bending reality&quot; explained above. Now, the theme was &quot;out of place&quot; and I initially though of only putting a ballet dancer above the water. This would satisfy the theme and a balet dancer already has a semantically close relationship to aestheticism. But in my opinion the scene would have felt empty. I also decided to add the butterfly because they always look nice and add a pieceful mood to the scene. This conclude this small discussion about &quot;why this scene&quot;. We can now move on to the technical aspect of it.</p>
 <p><br/><br/>
 <br/><br/></p>
-<p style="text-align:center;"><img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/dancer_base.png" alt="Logo" width="60%" height="60%"><figcaption style="text-align:center;">Fig.1 dancer basic drawing</figcaption></p>
+<p style="text-align:center;"><img src="images/dancer_base.png" alt="Logo" width="60%" height="60%"><figcaption style="text-align:center;">Fig.1 dancer basic drawing</figcaption></p>
 <p><br/><br/>
 <br/><br/></p>
 <h2 id="basic-raytraced-portals">Basic raytraced Portals</h2>
@@ -422,16 +422,16 @@ else:
 <p><br/><br/>
 <br/><br/></p>
 <div class="twentytwenty-container">
-        <img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/portal_way_1.jpeg" alt="way1-portal" class="img-responsive">
-        <img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/portal_validation_way_1.jpeg" alt="way1-validation" class="img-responsive">
+        <img src="images/portal_way_1.jpeg" alt="way1-portal" class="img-responsive">
+        <img src="images/portal_validation_way_1.jpeg" alt="way1-validation" class="img-responsive">
 </div> <figcaption style="text-align:center;">Side to side comparision of the portal with light coming from the main scene to the inner scene (way 1)</figcaption><br>
 <br/><br/>
 <br/><br/>
 <p><br/><br/>
 <br/><br/></p>
 <div class="twentytwenty-container">
-        <img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/portal_way_2.jpeg" alt="way2-portal" class="img-responsive">
-        <img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/portal_validation_way_2.jpeg" alt="way2-validation" class="img-responsive">
+        <img src="images/portal_way_2.jpeg" alt="way2-portal" class="img-responsive">
+        <img src="images/portal_validation_way_2.jpeg" alt="way2-validation" class="img-responsive">
 </div> <figcaption style="text-align:center;">Side to side comparision of the portal with light coming from the child scene to the main scene (way 2)</figcaption><br>
 <br/><br/>
 <br/><br/>
@@ -440,16 +440,16 @@ else:
 <p><br/><br/>
 <br/><br/></p>
 <div class="twentytwenty-container">
-        <img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/final_resized/full.png" alt="final" class="img-responsive">
-        <img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/final_resized/main.png" alt="main" class="img-responsive">
-        <img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/final_resized/scene1.png" alt="scene1" class="img-responsive">
-        <img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/final_resized/scene2.png" alt="scene2" class="img-responsive">
+        <img src="images/final_resized/full.png" alt="final" class="img-responsive">
+        <img src="images/final_resized/main.png" alt="main" class="img-responsive">
+        <img src="images/final_resized/scene1.png" alt="scene1" class="img-responsive">
+        <img src="images/final_resized/scene2.png" alt="scene2" class="img-responsive">
 </div> <figcaption style="text-align:center;">Side to side comparision of each of the portal scene with the final scene.</figcaption><br>
 <br/><br/>
 <br/><br/>
 <p><br/><br/>
 <br/><br/></p>
-<p style="text-align:center;"><img src="file:////home/quentin/Desktop/courses/ComputerGraphics/CG22/report-final/images/final_scene_full_denoised.jpeg" alt="Logo" width="80%" height="80%"><figcaption style="text-align:center;">Final rendered image</figcaption></p>
+<p style="text-align:center;"><img src="images/final_scene_full_denoised.jpeg" alt="Logo" width="80%" height="80%"><figcaption style="text-align:center;">Final rendered image</figcaption></p>
 <p><br/><br/>
 <br/><br/></p>
 <h2 id="conclusion">Conclusion</h2>
